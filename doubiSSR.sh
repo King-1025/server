@@ -570,7 +570,7 @@ function doubiSSR()
   log i "doubiSSR start..."
   record_doubiSSR=$ROOT/.doubiSSR_crawl_record
   init_record ${record_doubiSSR}
-  declare -a view=("https://doub.io/sszhfx/")
+  declare -a view=("https://doub.io/sszhfx/comment-page-60/#comments")
    for i0 in ${view}; do
     data=$(mktemp -u)
     log i "fetch ${i0}"
