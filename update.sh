@@ -59,8 +59,8 @@ function fresh()
   git commit -m "$update_time"
   git push
   echo ""
-  echo "更新于:$update_time"
-  echo "订阅:$SSR_URL"
+  echo "$update_time"
+  echo "$SSR_URL"
 }
 
 function url_safe_base64_encode()
