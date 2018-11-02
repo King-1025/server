@@ -58,7 +58,6 @@ function fresh()
   git add .
   git commit -m "$update_time"
   git push
-  echo ""
   echo "$update_time"
   echo "$SSR_URL"
 }
