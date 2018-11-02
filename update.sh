@@ -7,6 +7,8 @@ SSR_FILE=$ROOT/output-doubiSSR.txt
 SUBSCRIBE=DATA
 MODE="BASE64" #TEXT|BASE64
 SSR_URL="https://raw.githubusercontent.com/King-1025/server/SSR/$SUBSCRIBE"
+REMARKS=$(date "+%Y-%m-%d")
+GROUP=King-1025 
 
 if [ $# -eq 1 ]; then
    SUBSCRIBE=$1
@@ -29,12 +31,12 @@ function maybe_clean(){
 
 function update_by_doubiSSR()
 { 
-  $PICK_SSR
+#  $PICK_SSR
   if [ $? -eq 0 ]&&[ -e $SSR_FILE ]; then
     if [ "$MODE" == "TEXT" ]; then
-      mv $SSR_FILE > $ROOT/$SUBSCRIBE
+      mv "$SSR_FILE" > "$ROOT/$SUBSCRIBE"
     else
-      make_data $SSR_FILE $ROOT/$SUBSCRIBE
+      make_data "$SSR_FILE" "$ROOT/$SUBSCRIBE" "$REMARKS" "$GROUP"
     fi
     fresh
   fi
@@ -61,75 +63,139 @@ function fresh()
 
 function url_safe_base64_encode()
 {
-  if [ $# -eq 1 ]; then
-    local str=$(echo "$1" | base64)
-    local res=""
-    for i in $str; do
-      res+=$(echo "$i" | sed "s/\//_/g" | sed "s/+/-/g" | sed "s/=//g")
-    done
-    echo "$res"
+  if [ $# -eq 2 ]; then
+    declare -a str=()
+    if [ "$1" == "STRING" ]; then
+        str=($(echo "$2" | base64))
+    elif [ "$1" == "FILE" ]; then
+      if [ -e "$2" ]; then
+        str=($(base64 "$2"))
+      fi
+    fi
+    if [ ${#str[@]} -gt 0 ]; then
+      local res=""
+      for i in ${str[@]}; do
+        res+=$(echo "$i" | sed "s/\//_/g" | sed "s/+/-/g" | sed "s/=//g")
+      done
+      echo "$res"
+    fi
   fi
 }
 
 function url_safe_base64_decode()
 {
-  if [ $# -eq 1 ]; then
-    local str=$(echo "$1" | sed "s/ //g" | sed "s/_/\//g" | sed "s/-/+/g")
-    local mod=$((${#str}%4))
-    if [ $mod -gt 0 ]; then
-       local eq="====" 
-       str="${str}${eq:$mod}"
+  if [ $# -eq 2 ]; then
+    declare -a str=()
+    if [ "$1" == "STRING" ]; then
+        str=($(echo "$2" | sed "s/ //g" | sed "s/_/\//g" | sed "s/-/+/g"))
+    elif [ "$1" == "FILE" ]; then
+      if [ -e "$2" ]; then
+        str=($(sed "s/ //g" "$2" | sed "s/_/\//g" | sed "s/-/+/g"))
+      fi
     fi
-    str=$(echo "$str" | base64 -d)
-    if [ $? -eq 0 ]; then
-       echo $str
+    if [ ${#str[@]} -gt 0 ]; then
+      local res=""
+      for i in ${str[@]}; do
+       local mod=$((${#i}%4))
+       if [ $mod -gt 0 ]; then
+         local eq="===="
+         res="${i}${eq:$mod}"
+        else
+         res=$i
+       fi
+       res=$(echo "$res" | base64 -d)
+       if [ $? -eq 0 ]&&[ "$res" != "" ]; then
+         echo "$res"
+       fi
+     done
     fi
   fi
 }
 
 function change_format()
 {
-  if [ $# -eq 1 ]; then
-     echo $(echo $1 | awk -F ":" -v val="S2luZwo" '{
-         if(NF == 6){
-	 if(match($6,"\?") != 0){
-	    if(match($6,"remarks") == 0){
-	      $6=$6"&remarks="val
-	    }
-            if(match($6,"group") == 0){
-	      $6=$6"&group="val
-	    }else{
-	      gsub("group=.*$","group="val,$6) 
-            }
-           }else{
-             $6=$6"\?remarks="val"&group="val
-           }
-           gsub(" ",":",$0)
-	   print "ssr://"$0
-	 } 
-	 }')
+  if [ $# -eq 3 ]; then
+    local remarks=$2
+    local group=$3
+    local flag=$(echo $1 | awk -F ":" '{
+      if(NF == 6){
+       if(match($6,"\?.") != 0){
+         print "VALID_HAVE"
+       }else{
+         print "VALID_EMPTY"
+       }
+      }else{
+        print "INVALID"
+      }
+    }')
+    if [ "$flag" == "VALID_HAVE" ]; then
+      echo $1 | awk -F "&" -v drs="$remarks" -v dgp="$group" '{
+       have_remarks="no"
+       have_group="no"
+       for(i=1;i<=NF;i++){
+ 	      if(match($i,"remarks") != 0){
+          have_remarks="yes"
+	      }
+        if(match($i,"group") != 0){
+	        $i="group="dgp
+          have_group=yes
+         }
+	     }
+       if(have_remarks == "no"){
+         $NF=$NF"&remarks="drs
+       }
+       if(have_group == "no"){
+         $NF=$NF"&group="dgp
+       }
+      gsub(" ","\\&",$0)
+	    print $0
+	  }'
+    elif [ "$flag" == "VALID_EMPTY" ]; then
+      echo "$1/?remarks=${remarks}&group=${group}"
+    elif [ "$flag" == "INVAILD" ]; then
+      echo "INVAILD:$0"
+      return 1
+    fi
   fi
 }
 
 function make_data()
 {
-  if [ $# -eq 2 ]; then
+#  set -x
+  if [ $# -eq 4 ]; then
    local src=$1
    if [ -e "$src" ]; then
     local dst=$2
-    declare -a ssr=($(sed "s/ssr:..//g" "$src"))
+    local remarks=$(url_safe_base64_encode STRING $3)
+    local group=$(url_safe_base64_encode STRING $4)
+#    local remarks=$(echo "$3" | base64)
+#    local group=$(echo "$4" | base64)
     local tmp=$(mktemp -u)
-    for i in "${ssr[@]}"; do
-     local res=$(change_format $(url_safe_base64_decode "$i"))
-     if [ "$res" != "" ]; then
-       echo "$res" >> $tmp
+    cp "$src" "$tmp"
+    sed -i "s/ssr:..//g" "$tmp"
+    declare -a stxt=($(url_safe_base64_decode FILE "$tmp"))
+    rm -rf "$tmp" > /dev/null 2>&1
+    tmp=$(mktemp -u)
+    local number=0
+    for i in ${stxt[@]}; do
+     local res=$(change_format "$i" "$remarks" "$group")
+     if [ $? -eq 0 ]&&[ "$res" != "" ]; then
+       echo "============ecoding=========="
+       echo "$res"
+       res=$(url_safe_base64_encode STRING "$res")
+       echo "ssr://$res" >> "$tmp"
+       number=$(($number+1))
      fi
     done
-    url_safe_base64_encode "$(cat $tmp)" > $dst
-    cp $tmp 1
+    sed -i "1i\MAX=$number" $tmp
+   # mv $tmp 1
+   # exit 0
+    echo $(url_safe_base64_encode FILE "$tmp") > "$dst"
     rm -rf "$tmp" > /dev/null 2>&1
    fi
   fi
+  # set +x
+  # exit 0
 }
 
 update_by_doubiSSR
