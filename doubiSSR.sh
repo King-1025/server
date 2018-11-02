@@ -578,7 +578,8 @@ function doubiSSR()
     if [ $? != 0 ]||[ ! -e ${data} ];then continue; fi
     local list=$(mktemp -u)
     local size=0
-    local ssr=($(sed -n '/<pre class="prettyprint linenums" >/,+20p' ${data} | sed -n "/ssr:\/\//p" | sed "s/\(.*\)ssr\(.*\)/ssr\2/g" | sed "s/ //g"))
+    #local ssr=($(sed -n '/<pre class="prettyprint linenums" >/,+20p' ${data} | sed -n "/ssr:\/\//p" | sed "s/\(.*\)ssr\(.*\)/ssr\2/g" | sed "s/ //g"))
+    local ssr=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ssr:\/\//p" | sed "s/\(.*\)ssr\(.*\)/ssr\2/g" | sed "s/ //g"))
     is_null "ssr" "${ssr}" $(read_record SAVE ${record_doubiSSR})
     if [ ${size} -lt ${#ssr[@]} ]; then size=${#ssr[@]}; fi
     local ssr_1=($(sed -n "/dl1.*ss/p" ${data} | sed 's/\(.*\)ssr\(.*\)" t\(.*\)/ssr\2/g' | awk -F '"' '{print $1}' | sed "s/ //g"))
