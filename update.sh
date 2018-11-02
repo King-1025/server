@@ -31,7 +31,7 @@ function maybe_clean(){
 
 function update_by_doubiSSR()
 { 
-  $PICK_SSR
+#  $PICK_SSR
   if [ $? -eq 0 ]&&[ -e $SSR_FILE ]; then
     if [ "$MODE" == "TEXT" ]; then
       mv "$SSR_FILE" > "$ROOT/$SUBSCRIBE"
@@ -57,8 +57,9 @@ function fresh()
   git add .
   git commit -m "$update_time"
   git push
-  echo "$update_time"
-  echo "$SSR_URL"
+  echo ""
+  echo "更新于:$update_time"
+  echo "订阅:$SSR_URL"
 }
 
 function url_safe_base64_encode()
@@ -153,7 +154,7 @@ function change_format()
     elif [ "$flag" == "VALID_EMPTY" ]; then
       echo "$1/?remarks=${remarks}&group=${group}"
     elif [ "$flag" == "INVAILD" ]; then
-      echo "INVAILD:$0"
+      echo "INVAILD:$1"
       return 1
     fi
   fi
@@ -177,16 +178,20 @@ function make_data()
     rm -rf "$tmp" > /dev/null 2>&1
     tmp=$(mktemp -u)
     local number=0
-    for i in ${stxt[@]}; do
+    for i in "${stxt[@]}"; do
      local res=$(change_format "$i" "$remarks" "$group")
      if [ $? -eq 0 ]&&[ "$res" != "" ]; then
        echo "============ecoding=========="
-       echo "$res"
+       echo -e "$res\n"
        res=$(url_safe_base64_encode STRING "$res")
        echo "ssr://$res" >> "$tmp"
        number=$(($number+1))
+     else
+       echo "------------passing---------"
+       echo -e "Invalid:$i\n"
      fi
     done
+    echo "Total:${#stxt[@]} Valid:$number"
     sed -i "1i\MAX=$number" $tmp
    # mv $tmp 1
    # exit 0
