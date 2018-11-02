@@ -27,11 +27,12 @@ function maybe_clean(){
        rm -rf $f > /dev/null 2>&1
      done
   fi
+  echo ""
 }
 
 function update_by_doubiSSR()
 { 
-#  $PICK_SSR
+  $PICK_SSR
   if [ $? -eq 0 ]&&[ -e $SSR_FILE ]; then
     if [ "$MODE" == "TEXT" ]; then
       mv "$SSR_FILE" > "$ROOT/$SUBSCRIBE"
