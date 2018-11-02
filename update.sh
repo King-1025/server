@@ -31,8 +31,10 @@ function maybe_clean(){
 }
 
 function update_by_doubiSSR()
-{ 
-  $PICK_SSR
+{
+  if [ ! -e $SSR_FILE ]; then
+    $PICK_SSR
+  fi
   if [ $? -eq 0 ]&&[ -e $SSR_FILE ]; then
     if [ "$MODE" == "TEXT" ]; then
       mv "$SSR_FILE" > "$ROOT/$SUBSCRIBE"
@@ -174,6 +176,7 @@ function make_data()
     local tmp=$(mktemp -u)
     cp "$src" "$tmp"
     sed -i "s/ssr:..//g" "$tmp"
+    sed -i "s/ss:..//g" "$tmp"
     declare -a stxt=($(url_safe_base64_decode FILE "$tmp"))
     rm -rf "$tmp" > /dev/null 2>&1
     tmp=$(mktemp -u)
