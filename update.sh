@@ -39,8 +39,6 @@ function update_by_doubiSSR()
     else
       make_data "$SSR_FILE" "$ROOT/$SUBSCRIBE" "$REMARKS" "$GROUP"
     fi
-    echo "update ESC..."
-    sf put "$ROOT/$SUBSCRIBE"
     fresh
   fi
 }
