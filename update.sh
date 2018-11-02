@@ -63,8 +63,11 @@ function url_safe_base64_encode()
 {
   if [ $# -eq 1 ]; then
     local str=$(echo "$1" | base64)
-    str=$(echo "$str" | sed "s/ //g" | sed "s/\//_/g" | sed "s/+/-/g" | sed "s/=//g")
-    echo "$str"
+    local res=""
+    for i in $str; do
+      res+=$(echo "$i" | sed "s/\//_/g" | sed "s/+/-/g" | sed "s/=//g")
+    done
+    echo "$res"
   fi
 }
 
@@ -77,7 +80,7 @@ function url_safe_base64_decode()
        local eq="====" 
        str="${str}${eq:$mod}"
     fi
-    str=$(echo "$str" | base64 -d) > /dev/null 
+    str=$(echo "$str" | base64 -d)
     if [ $? -eq 0 ]; then
        echo $str
     fi
@@ -89,7 +92,7 @@ function change_format()
   if [ $# -eq 1 ]; then
      echo $(echo $1 | awk -F ":" -v val="S2luZwo" '{
          if(NF == 6){
-	   if($6 != ""){
+	 if(match($6,"\?") != 0){
 	    if(match($6,"remarks") == 0){
 	      $6=$6"&remarks="val
 	    }
@@ -99,7 +102,7 @@ function change_format()
 	      gsub("group=.*$","group="val,$6) 
             }
            }else{
-             $6=$6"/?remarks=xxx&group="val
+             $6=$6"\?remarks="val"&group="val
            }
            gsub(" ",":",$0)
 	   print "ssr://"$0
@@ -115,13 +118,16 @@ function make_data()
    if [ -e "$src" ]; then
     local dst=$2
     declare -a ssr=($(sed "s/ssr:..//g" "$src"))
-    rm -rf "$dst" > /dev/null 2>&1
+    local tmp=$(mktemp -u)
     for i in "${ssr[@]}"; do
      local res=$(change_format $(url_safe_base64_decode "$i"))
      if [ "$res" != "" ]; then
-       printf %s $(url_safe_base64_encode "$res") >> "$dst"
+       echo "$res" >> $tmp
      fi
     done
+    url_safe_base64_encode "$(cat $tmp)" > $dst
+    cp $tmp 1
+    rm -rf "$tmp" > /dev/null 2>&1
    fi
   fi
 }
