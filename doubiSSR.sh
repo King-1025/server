@@ -3,7 +3,7 @@
 
 ROOT=.
 REQUIREMENT="curl sed ua awk"
-CURL_OPTION="-# -s -L"
+CURL_OPTION="-# -s -L --socks5 127.0.0.1:1081"
 SAVE_TYPE="txt"
 SAVE_FILE="$ROOT/output"
 SELF_UA=0
