@@ -1,0 +1,152 @@
+The system is: Linux - 3.10.72+ - aarch64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /data/data/com.termux/files/usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is Clang, found in "/data/data/com.termux/files/home/iodine/build/CMakeFiles/3.12.4/CompilerIdC/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/data/data/com.termux/files/usr/bin/make" "cmTC_27740/fast"
+/data/data/com.termux/files/usr/bin/make -f CMakeFiles/cmTC_27740.dir/build.make CMakeFiles/cmTC_27740.dir/build
+make[1]: Entering directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_27740.dir/testCCompiler.c.o
+/data/data/com.termux/files/usr/bin/cc    -o CMakeFiles/cmTC_27740.dir/testCCompiler.c.o   -c /data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_27740
+/data/data/com.termux/files/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27740.dir/link.txt --verbose=1
+/data/data/com.termux/files/usr/bin/cc      -rdynamic CMakeFiles/cmTC_27740.dir/testCCompiler.c.o  -o cmTC_27740 
+make[1]: Leaving directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/data/data/com.termux/files/usr/bin/make" "cmTC_86a9e/fast"
+/data/data/com.termux/files/usr/bin/make -f CMakeFiles/cmTC_86a9e.dir/build.make CMakeFiles/cmTC_86a9e.dir/build
+make[1]: Entering directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o
+/data/data/com.termux/files/usr/bin/cc    -o CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o   -c /data/data/com.termux/files/usr/share/cmake-3.12/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_86a9e
+/data/data/com.termux/files/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86a9e.dir/link.txt --verbose=1
+/data/data/com.termux/files/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o  -o cmTC_86a9e 
+clang version 7.0.0 (tags/RELEASE_700/final)
+Target: aarch64--linux-android
+Thread model: posix
+InstalledDir: /data/data/com.termux/files/usr/bin
+ "/data/data/com.termux/files/usr/bin/aarch64-linux-android-ld" -pie -export-dynamic --fix-cortex-a53-843419 --enable-new-dtags --eh-frame-hdr -m aarch64linux -export-dynamic -dynamic-linker /system/bin/linker64 -o cmTC_86a9e /data/data/com.termux/files/usr/bin/../lib/crtbegin_dynamic.o -L/data/data/com.termux/files/usr/bin/../lib CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /data/data/com.termux/files/usr/bin/../lib/crtend_android.o
+make[1]: Leaving directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/data/data/com.termux/files/usr/bin/make" "cmTC_86a9e/fast"]
+  ignore line: [/data/data/com.termux/files/usr/bin/make -f CMakeFiles/cmTC_86a9e.dir/build.make CMakeFiles/cmTC_86a9e.dir/build]
+  ignore line: [make[1]: Entering directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/data/data/com.termux/files/usr/bin/cc    -o CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o   -c /data/data/com.termux/files/usr/share/cmake-3.12/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_86a9e]
+  ignore line: [/data/data/com.termux/files/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86a9e.dir/link.txt --verbose=1]
+  ignore line: [/data/data/com.termux/files/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o  -o cmTC_86a9e ]
+  ignore line: [clang version 7.0.0 (tags/RELEASE_700/final)]
+  ignore line: [Target: aarch64--linux-android]
+  ignore line: [Thread model: posix]
+  ignore line: [InstalledDir: /data/data/com.termux/files/usr/bin]
+  link line: [ "/data/data/com.termux/files/usr/bin/aarch64-linux-android-ld" -pie -export-dynamic --fix-cortex-a53-843419 --enable-new-dtags --eh-frame-hdr -m aarch64linux -export-dynamic -dynamic-linker /system/bin/linker64 -o cmTC_86a9e /data/data/com.termux/files/usr/bin/../lib/crtbegin_dynamic.o -L/data/data/com.termux/files/usr/bin/../lib CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl /data/data/com.termux/files/usr/bin/../lib/crtend_android.o]
+    arg [/data/data/com.termux/files/usr/bin/aarch64-linux-android-ld] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [--fix-cortex-a53-843419] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [aarch64linux] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/system/bin/linker64] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_86a9e] ==> ignore
+    arg [/data/data/com.termux/files/usr/bin/../lib/crtbegin_dynamic.o] ==> ignore
+    arg [-L/data/data/com.termux/files/usr/bin/../lib] ==> dir [/data/data/com.termux/files/usr/bin/../lib]
+    arg [CMakeFiles/cmTC_86a9e.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-ldl] ==> lib [dl]
+    arg [/data/data/com.termux/files/usr/bin/../lib/crtend_android.o] ==> ignore
+  collapse library dir [/data/data/com.termux/files/usr/bin/../lib] ==> [/data/data/com.termux/files/usr/lib]
+  implicit libs: [gcc;dl;c;gcc;dl]
+  implicit dirs: [/data/data/com.termux/files/usr/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/data/data/com.termux/files/usr/bin/make" "cmTC_3565f/fast"
+/data/data/com.termux/files/usr/bin/make -f CMakeFiles/cmTC_3565f.dir/build.make CMakeFiles/cmTC_3565f.dir/build
+make[1]: Entering directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3565f.dir/feature_tests.c.o
+/data/data/com.termux/files/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_3565f.dir/feature_tests.c.o   -c /data/data/com.termux/files/home/iodine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_3565f
+/data/data/com.termux/files/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3565f.dir/link.txt --verbose=1
+/data/data/com.termux/files/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3565f.dir/feature_tests.c.o  -o cmTC_3565f 
+make[1]: Leaving directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/data/data/com.termux/files/usr/bin/make" "cmTC_153f5/fast"
+/data/data/com.termux/files/usr/bin/make -f CMakeFiles/cmTC_153f5.dir/build.make CMakeFiles/cmTC_153f5.dir/build
+make[1]: Entering directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_153f5.dir/feature_tests.c.o
+/data/data/com.termux/files/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_153f5.dir/feature_tests.c.o   -c /data/data/com.termux/files/home/iodine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_153f5
+/data/data/com.termux/files/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_153f5.dir/link.txt --verbose=1
+/data/data/com.termux/files/usr/bin/cc      -rdynamic CMakeFiles/cmTC_153f5.dir/feature_tests.c.o  -o cmTC_153f5 
+make[1]: Leaving directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/data/data/com.termux/files/usr/bin/make" "cmTC_55679/fast"
+/data/data/com.termux/files/usr/bin/make -f CMakeFiles/cmTC_55679.dir/build.make CMakeFiles/cmTC_55679.dir/build
+make[1]: Entering directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_55679.dir/feature_tests.c.o
+/data/data/com.termux/files/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_55679.dir/feature_tests.c.o   -c /data/data/com.termux/files/home/iodine/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_55679
+/data/data/com.termux/files/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55679.dir/link.txt --verbose=1
+/data/data/com.termux/files/usr/bin/cc      -rdynamic CMakeFiles/cmTC_55679.dir/feature_tests.c.o  -o cmTC_55679 
+make[1]: Leaving directory '/data/data/com.termux/files/home/iodine/build/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros

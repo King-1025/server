@@ -1,0 +1,1 @@
+/data/data/com.termux/files/usr/bin/cc   -rdynamic CMakeFiles/iodine.dir/client/client.c.o CMakeFiles/iodine.dir/client/iodine.c.o CMakeFiles/iodine.dir/client/util.c.o  -o ../bin/iodine -Wl,-rpath,/data/data/com.termux/files/home/iodine/build/lib: ../lib/libcommon.so 
