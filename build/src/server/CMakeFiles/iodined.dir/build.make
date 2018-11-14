@@ -109,7 +109,7 @@ bin/iodined: src/server/CMakeFiles/iodined.dir/fw_query.c.o
 bin/iodined: src/server/CMakeFiles/iodined.dir/iodined.c.o
 bin/iodined: src/server/CMakeFiles/iodined.dir/user.c.o
 bin/iodined: src/server/CMakeFiles/iodined.dir/build.make
-bin/iodined: lib/libcommon.so
+bin/iodined: lib/libcommon.a
 bin/iodined: src/server/CMakeFiles/iodined.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable ../../bin/iodined"
 	cd /data/data/com.termux/files/home/github/iodine/build/src/server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/iodined.dir/link.txt --verbose=$(VERBOSE)

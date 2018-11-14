@@ -28,7 +28,7 @@
 #include <time.h>
 #include <zlib.h>
 
-#include "common.h"
+#include "../common/common.h"
 
 #ifdef WINDOWS32
 #include "windows.h"
@@ -46,16 +46,15 @@
 #include <sys/uio.h>
 #include <pwd.h>
 #include <netdb.h>
-#include <syslog.h>
 #endif
 
-#include "dns.h"
-#include "encoding.h"
+#include "../common/dns.h"
+#include "../common/encoding.h"
 #include "user.h"
-#include "login.h"
-#include "tun.h"
+#include "../common/login.h"
+#include "../common/tun.h"
 #include "fw_query.h"
-#include "version.h"
+#include "../common/version.h"
 
 #ifdef HAVE_SYSTEMD
 # include <systemd/sd-daemon.h>
@@ -95,7 +94,7 @@ static in_addr_t ns_ip;
 static int bind_port;
 static int debug;
 
-#if !defined(BSD) && !defined(__GLIBC__)
+#if !defined(BSD) && !defined(__GLIBC__) && !defined(TERMUX)
 static char *__progname;
 #else
 extern char *__progname;
@@ -182,7 +181,7 @@ sigint(int sig)
 	running = 0;
 }
 
-#ifdef WINDOWS32
+#if defined(WINDOWS32) || defined(TERMUX)
 #define	LOG_EMERG	0
 #define	LOG_ALERT	1
 #define	LOG_CRIT	2
@@ -196,6 +195,8 @@ static void syslog(int a, const char *str, ...)
 {
 	/* TODO: implement (add to event log), move to common.c */
 }
+#else
+#include <syslog.h>
 #endif
 
 /* This will not check that user has passed login challenge */
@@ -2733,7 +2734,7 @@ main(int argc, char **argv)
 	tzsetwall();
 #endif
 #ifndef WINDOWS32
-	openlog( __progname, LOG_NDELAY, LOG_DAEMON );
+//	openlog( __progname, LOG_NDELAY, LOG_DAEMON );
 #endif
 
 	if (newroot != NULL)

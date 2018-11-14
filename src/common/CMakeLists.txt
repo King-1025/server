@@ -10,4 +10,5 @@ set(COMMON_SRC tun.c
 	       base128.c
 	       md5.c
 	       common.c)
-add_library (common SHARED  ${COMMON_SRC})
+message(STATUS ${CMAKE_C_FLAGS})
+add_library (common  ${COMMON_SRC})

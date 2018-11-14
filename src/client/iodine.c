@@ -29,7 +29,7 @@
 #include <time.h>
 
 #ifdef WINDOWS32
-#include "windows.h"
+#include "../common/windows.h"
 #include <winsock2.h>
 #else
 #include <grp.h>
@@ -37,8 +37,8 @@
 #include <netdb.h>
 #endif
 
-#include "common.h"
-#include "tun.h"
+#include "../common/common.h"
+#include "../common/tun.h"
 #include "client.h"
 #include "util.h"
 

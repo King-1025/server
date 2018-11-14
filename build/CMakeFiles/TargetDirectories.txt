@@ -24,10 +24,3 @@
 /data/data/com.termux/files/home/github/iodine/build/src/server/CMakeFiles/iodined.dir
 /data/data/com.termux/files/home/github/iodine/build/src/server/CMakeFiles/list_install_components.dir
 /data/data/com.termux/files/home/github/iodine/build/src/server/CMakeFiles/rebuild_cache.dir
-/data/data/com.termux/files/home/github/iodine/build/src/client/CMakeFiles/install/strip.dir
-/data/data/com.termux/files/home/github/iodine/build/src/client/CMakeFiles/install/local.dir
-/data/data/com.termux/files/home/github/iodine/build/src/client/CMakeFiles/list_install_components.dir
-/data/data/com.termux/files/home/github/iodine/build/src/client/CMakeFiles/iodine.dir
-/data/data/com.termux/files/home/github/iodine/build/src/client/CMakeFiles/rebuild_cache.dir
-/data/data/com.termux/files/home/github/iodine/build/src/client/CMakeFiles/install.dir
-/data/data/com.termux/files/home/github/iodine/build/src/client/CMakeFiles/edit_cache.dir

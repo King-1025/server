@@ -30,11 +30,11 @@
 #include <time.h>
 
 #ifdef WINDOWS32
-#include "windows.h"
+#include "../common/windows.h"
 #else
 #include <arpa/nameser.h>
 #ifdef ANDROID
-#include "android_dns.h"
+#include "../common/android_dns.h"
 #endif
 #ifdef DARWIN
 #define BIND_8_COMPAT
@@ -45,12 +45,12 @@
 #include <netdb.h>
 #endif
 
-#include "common.h"
-#include "encoding.h"
-#include "dns.h"
-#include "login.h"
-#include "tun.h"
-#include "version.h"
+#include "../common/common.h"
+#include "../common/encoding.h"
+#include "../common/dns.h"
+#include "../common/login.h"
+#include "../common/tun.h"
+#include "../common/version.h"
 #include "client.h"
 
 static void handshake_lazyoff(int dns_fd);

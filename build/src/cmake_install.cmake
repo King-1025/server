@@ -41,7 +41,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/data/data/com.termux/files/home/github/iodine/build/src/common/cmake_install.cmake")
   include("/data/data/com.termux/files/home/github/iodine/build/src/server/cmake_install.cmake")
-  include("/data/data/com.termux/files/home/github/iodine/build/src/client/cmake_install.cmake")
 
 endif()
 

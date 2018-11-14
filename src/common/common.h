@@ -73,6 +73,10 @@ extern const unsigned char raw_header[RAW_HDR_LEN];
 #define T_UNSET 65432
 /* Unused RR type, never actually sent */
 
+#ifndef TERMUX
+#define TERMUX 1                                   
+#endif
+
 struct packet
 {
 	int len;		/* Total packet length */

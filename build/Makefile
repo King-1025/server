@@ -182,19 +182,6 @@ iodined/fast:
 	$(MAKE) -f src/server/CMakeFiles/iodined.dir/build.make src/server/CMakeFiles/iodined.dir/build
 .PHONY : iodined/fast
 
-#=============================================================================
-# Target rules for targets named iodine
-
-# Build rule for target.
-iodine: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 iodine
-.PHONY : iodine
-
-# fast build rule for target.
-iodine/fast:
-	$(MAKE) -f src/client/CMakeFiles/iodine.dir/build.make src/client/CMakeFiles/iodine.dir/build
-.PHONY : iodine/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -209,7 +196,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... common"
 	@echo "... iodined"
-	@echo "... iodine"
 .PHONY : help
 
 

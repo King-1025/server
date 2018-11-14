@@ -57,7 +57,7 @@
 const unsigned char raw_header[RAW_HDR_LEN] = { 0x10, 0xd1, 0x9e, 0x00 };
 
 /* daemon(3) exists only in 4.4BSD or later, and in GNU libc */
-#if !defined(ANDROID) && !defined(WINDOWS32) && !(defined(BSD) && (BSD >= 199306)) && !defined(__GLIBC__)
+#if !defined(ANDROID) && !defined(WINDOWS32) && !(defined(BSD) && (BSD >= 199306)) && !defined(__GLIBC__) && !defined(TERMUX)
 static int daemon(int nochdir, int noclose)
 {
  	int fd, i;
@@ -105,10 +105,11 @@ int setgroups(int count, int *groups)
 void
 check_superuser(void)
 {
-	if (geteuid() != 0) {
+	/*if (geteuid() != 0) {
 		warnx("Run as root and you'll be happy.");
 		exit(-1);
 	}
+	*/
 }
 #endif
 
@@ -264,7 +265,7 @@ do_pidfile(char *pidfile)
 	FILE *file;
 
 	if ((file = fopen(pidfile, "w")) == NULL) {
-		syslog(LOG_ERR, "Cannot write pidfile to %s, exiting", pidfile);
+		//syslog(LOG_ERR, "Cannot write pidfile to %s, exiting", pidfile);
 		err(1, "do_pidfile: Can not write pidfile to %s", pidfile);
 	} else {
 		fprintf(file, "%d\n", (int)getpid());

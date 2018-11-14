@@ -84,7 +84,7 @@ open_tun(const char *tun_device)
 	int i;
 	int tun_fd;
 	struct ifreq ifreq;
-#ifdef ANDROID
+#if defined(ANDROID) || defined(TERMUX)
 	char *tunnel = "/dev/tun";
 #else
 	char *tunnel = "/dev/net/tun";

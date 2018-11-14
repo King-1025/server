@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/data/data/com.termux/files/home/github/iodine/src/client/util.c
+stdio.h
+-
+../common/common.h
+/data/data/com.termux/files/home/github/iodine/src/common/common.h
+util.h
+/data/data/com.termux/files/home/github/iodine/src/client/util.h
+
+/data/data/com.termux/files/home/github/iodine/src/client/util.h
+
+/data/data/com.termux/files/home/github/iodine/src/common/common.h
+windows.h
+/data/data/com.termux/files/home/github/iodine/src/common/windows.h
+sys/types.h
+-
+sys/socket.h
+-
+err.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+
+/data/data/com.termux/files/home/github/iodine/src/common/windows.h
+winsock2.h
+-
+windows.h
+-
+windns.h
+-
+ws2tcpip.h
+-
+iphlpapi.h
+-
+

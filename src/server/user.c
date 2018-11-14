@@ -30,8 +30,8 @@
 #include <netdb.h>
 #endif
 
-#include "common.h"
-#include "encoding.h"
+#include "../common/common.h"
+#include "../common/encoding.h"
 #include "user.h"
 
 struct tun_user *users;
