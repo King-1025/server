@@ -6,39 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/data/data/com.termux/files/home/iodine/build/src/common/base64u.c
+/data/data/com.termux/files/home/github/iodine/src/common/android_dns.h
 
-/data/data/com.termux/files/home/iodine/src/common/base128.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-encoding.h
-/data/data/com.termux/files/home/iodine/src/common/encoding.h
-
-/data/data/com.termux/files/home/iodine/src/common/base32.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-encoding.h
-/data/data/com.termux/files/home/iodine/src/common/encoding.h
-
-/data/data/com.termux/files/home/iodine/src/common/base64.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-encoding.h
-/data/data/com.termux/files/home/iodine/src/common/encoding.h
-
-/data/data/com.termux/files/home/iodine/src/common/common.c
+/data/data/com.termux/files/home/github/iodine/src/common/common.c
 time.h
 -
 sys/types.h
@@ -90,11 +60,11 @@ netdb.h
 selinux/selinux.h
 -
 common.h
-/data/data/com.termux/files/home/iodine/src/common/common.h
+/data/data/com.termux/files/home/github/iodine/src/common/common.h
 
-/data/data/com.termux/files/home/iodine/src/common/common.h
+/data/data/com.termux/files/home/github/iodine/src/common/common.h
 windows.h
-/data/data/com.termux/files/home/iodine/src/common/windows.h
+/data/data/com.termux/files/home/github/iodine/src/common/windows.h
 sys/types.h
 -
 sys/socket.h
@@ -106,7 +76,7 @@ netinet/in.h
 arpa/inet.h
 -
 
-/data/data/com.termux/files/home/iodine/src/common/dns.c
+/data/data/com.termux/files/home/github/iodine/src/common/dns.c
 time.h
 -
 stdio.h
@@ -124,7 +94,7 @@ strings.h
 ctype.h
 -
 windows.h
-/data/data/com.termux/files/home/iodine/src/common/windows.h
+/data/data/com.termux/files/home/github/iodine/src/common/windows.h
 arpa/nameser.h
 -
 arpa/nameser_compat.h
@@ -136,69 +106,53 @@ arpa/inet.h
 err.h
 -
 android_dns.h
-/data/data/com.termux/files/home/iodine/src/common/android_dns.h
+/data/data/com.termux/files/home/github/iodine/src/common/android_dns.h
 dns.h
-/data/data/com.termux/files/home/iodine/src/common/dns.h
+/data/data/com.termux/files/home/github/iodine/src/common/dns.h
 encoding.h
-/data/data/com.termux/files/home/iodine/src/common/encoding.h
+/data/data/com.termux/files/home/github/iodine/src/common/encoding.h
 read.h
-/data/data/com.termux/files/home/iodine/src/common/read.h
+/data/data/com.termux/files/home/github/iodine/src/common/read.h
 
-/data/data/com.termux/files/home/iodine/src/common/dns.h
+/data/data/com.termux/files/home/github/iodine/src/common/dns.h
 common.h
-/data/data/com.termux/files/home/iodine/src/common/common.h
+/data/data/com.termux/files/home/github/iodine/src/common/common.h
 
-/data/data/com.termux/files/home/iodine/src/common/encoding.c
+/data/data/com.termux/files/home/github/iodine/src/common/encoding.c
 string.h
 -
 common.h
-/data/data/com.termux/files/home/iodine/src/common/common.h
+/data/data/com.termux/files/home/github/iodine/src/common/common.h
 encoding.h
-/data/data/com.termux/files/home/iodine/src/common/encoding.h
+/data/data/com.termux/files/home/github/iodine/src/common/encoding.h
 
-/data/data/com.termux/files/home/iodine/src/common/encoding.h
+/data/data/com.termux/files/home/github/iodine/src/common/encoding.h
 stdbool.h
 -
 
-/data/data/com.termux/files/home/iodine/src/common/login.c
+/data/data/com.termux/files/home/github/iodine/src/common/login.c
 string.h
 -
 sys/types.h
 -
 windows.h
-/data/data/com.termux/files/home/iodine/src/common/windows.h
+/data/data/com.termux/files/home/github/iodine/src/common/windows.h
 netinet/in.h
 -
 arpa/inet.h
 -
 login.h
-/data/data/com.termux/files/home/iodine/src/common/login.h
+/data/data/com.termux/files/home/github/iodine/src/common/login.h
 md5.h
-/data/data/com.termux/files/home/iodine/src/common/md5.h
+/data/data/com.termux/files/home/github/iodine/src/common/md5.h
 
-/data/data/com.termux/files/home/iodine/src/common/login.h
+/data/data/com.termux/files/home/github/iodine/src/common/login.h
 
-/data/data/com.termux/files/home/iodine/src/common/md5.c
-md5.h
-/data/data/com.termux/files/home/iodine/src/common/md5.h
-string.h
--
+/data/data/com.termux/files/home/github/iodine/src/common/md5.h
 
-/data/data/com.termux/files/home/iodine/src/common/md5.h
+/data/data/com.termux/files/home/github/iodine/src/common/read.h
 
-/data/data/com.termux/files/home/iodine/src/common/read.c
-string.h
--
-stdint.h
--
-stdlib.h
--
-read.h
-/data/data/com.termux/files/home/iodine/src/common/read.h
-
-/data/data/com.termux/files/home/iodine/src/common/read.h
-
-/data/data/com.termux/files/home/iodine/src/common/tun.c
+/data/data/com.termux/files/home/github/iodine/src/common/tun.c
 stdio.h
 -
 stdlib.h
@@ -230,7 +184,7 @@ net/if_utun.h
 netinet/ip.h
 -
 windows.h
-/data/data/com.termux/files/home/iodine/src/common/windows.h
+/data/data/com.termux/files/home/github/iodine/src/common/windows.h
 winioctl.h
 -
 err.h
@@ -240,9 +194,9 @@ netinet/in.h
 arpa/inet.h
 -
 tun.h
-/data/data/com.termux/files/home/iodine/src/common/tun.h
+/data/data/com.termux/files/home/github/iodine/src/common/tun.h
 common.h
-/data/data/com.termux/files/home/iodine/src/common/common.h
+/data/data/com.termux/files/home/github/iodine/src/common/common.h
 sys/ioctl.h
 -
 net/if.h
@@ -250,5 +204,17 @@ net/if.h
 linux/if_tun.h
 -
 
-/data/data/com.termux/files/home/iodine/src/common/tun.h
+/data/data/com.termux/files/home/github/iodine/src/common/tun.h
+
+/data/data/com.termux/files/home/github/iodine/src/common/windows.h
+winsock2.h
+-
+windows.h
+-
+windns.h
+-
+ws2tcpip.h
+-
+iphlpapi.h
+-
 

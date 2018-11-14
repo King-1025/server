@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ -e "$1" ]; then
+   echo "/* Don't edit this file,it auto-created by others! */" > base64u.c
+   sed -e 's/\([Bb][Aa][Ss][Ee]64\)/\1u/g; s/0123456789+/0123456789_/' "$1" >> base64u.c
+fi

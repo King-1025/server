@@ -48,47 +48,13 @@ RM = /data/data/com.termux/files/usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/data/com.termux/files/home/iodine
+CMAKE_SOURCE_DIR = /data/data/com.termux/files/home/github/iodine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/data/com.termux/files/home/iodine/build
+CMAKE_BINARY_DIR = /data/data/com.termux/files/home/github/iodine/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/data/data/com.termux/files/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/data/data/com.termux/files/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -102,6 +68,39 @@ install/strip/fast: preinstall/fast
 	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/data/data/com.termux/files/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -114,26 +113,27 @@ install/fast: preinstall/fast
 	/data/data/com.termux/files/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/data/data/com.termux/files/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : list_install_components/fast
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /data/data/com.termux/files/home/iodine/build && $(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/iodine/build/CMakeFiles /data/data/com.termux/files/home/iodine/build/src/common/CMakeFiles/progress.marks
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/iodine/build/CMakeFiles 0
+	cd /data/data/com.termux/files/home/github/iodine/build && $(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/github/iodine/build/CMakeFiles /data/data/com.termux/files/home/github/iodine/build/src/common/CMakeFiles/progress.marks
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/github/iodine/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/clean
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,22 +143,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/preinstall
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/preinstall
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /data/data/com.termux/files/home/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /data/data/com.termux/files/home/github/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/common/CMakeFiles/common.dir/rule:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/common.dir/rule
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/common/CMakeFiles/common.dir/rule
 .PHONY : src/common/CMakeFiles/common.dir/rule
 
 # Convenience name for target.
@@ -168,7 +168,7 @@ common: src/common/CMakeFiles/common.dir/rule
 
 # fast build rule for target.
 common/fast:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/build
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/build
 .PHONY : common/fast
 
 base128.o: base128.c.o
@@ -177,7 +177,7 @@ base128.o: base128.c.o
 
 # target to build an object file
 base128.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base128.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base128.c.o
 .PHONY : base128.c.o
 
 base128.i: base128.c.i
@@ -186,7 +186,7 @@ base128.i: base128.c.i
 
 # target to preprocess a source file
 base128.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base128.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base128.c.i
 .PHONY : base128.c.i
 
 base128.s: base128.c.s
@@ -195,7 +195,7 @@ base128.s: base128.c.s
 
 # target to generate assembly for a file
 base128.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base128.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base128.c.s
 .PHONY : base128.c.s
 
 base32.o: base32.c.o
@@ -204,7 +204,7 @@ base32.o: base32.c.o
 
 # target to build an object file
 base32.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base32.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base32.c.o
 .PHONY : base32.c.o
 
 base32.i: base32.c.i
@@ -213,7 +213,7 @@ base32.i: base32.c.i
 
 # target to preprocess a source file
 base32.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base32.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base32.c.i
 .PHONY : base32.c.i
 
 base32.s: base32.c.s
@@ -222,7 +222,7 @@ base32.s: base32.c.s
 
 # target to generate assembly for a file
 base32.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base32.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base32.c.s
 .PHONY : base32.c.s
 
 base64.o: base64.c.o
@@ -231,7 +231,7 @@ base64.o: base64.c.o
 
 # target to build an object file
 base64.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64.c.o
 .PHONY : base64.c.o
 
 base64.i: base64.c.i
@@ -240,7 +240,7 @@ base64.i: base64.c.i
 
 # target to preprocess a source file
 base64.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64.c.i
 .PHONY : base64.c.i
 
 base64.s: base64.c.s
@@ -249,7 +249,7 @@ base64.s: base64.c.s
 
 # target to generate assembly for a file
 base64.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64.c.s
 .PHONY : base64.c.s
 
 base64u.o: base64u.c.o
@@ -258,7 +258,7 @@ base64u.o: base64u.c.o
 
 # target to build an object file
 base64u.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64u.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64u.c.o
 .PHONY : base64u.c.o
 
 base64u.i: base64u.c.i
@@ -267,7 +267,7 @@ base64u.i: base64u.c.i
 
 # target to preprocess a source file
 base64u.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64u.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64u.c.i
 .PHONY : base64u.c.i
 
 base64u.s: base64u.c.s
@@ -276,7 +276,7 @@ base64u.s: base64u.c.s
 
 # target to generate assembly for a file
 base64u.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64u.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/base64u.c.s
 .PHONY : base64u.c.s
 
 common.o: common.c.o
@@ -285,7 +285,7 @@ common.o: common.c.o
 
 # target to build an object file
 common.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/common.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/common.c.o
 .PHONY : common.c.o
 
 common.i: common.c.i
@@ -294,7 +294,7 @@ common.i: common.c.i
 
 # target to preprocess a source file
 common.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/common.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/common.c.i
 .PHONY : common.c.i
 
 common.s: common.c.s
@@ -303,7 +303,7 @@ common.s: common.c.s
 
 # target to generate assembly for a file
 common.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/common.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/common.c.s
 .PHONY : common.c.s
 
 dns.o: dns.c.o
@@ -312,7 +312,7 @@ dns.o: dns.c.o
 
 # target to build an object file
 dns.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/dns.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/dns.c.o
 .PHONY : dns.c.o
 
 dns.i: dns.c.i
@@ -321,7 +321,7 @@ dns.i: dns.c.i
 
 # target to preprocess a source file
 dns.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/dns.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/dns.c.i
 .PHONY : dns.c.i
 
 dns.s: dns.c.s
@@ -330,7 +330,7 @@ dns.s: dns.c.s
 
 # target to generate assembly for a file
 dns.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/dns.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/dns.c.s
 .PHONY : dns.c.s
 
 encoding.o: encoding.c.o
@@ -339,7 +339,7 @@ encoding.o: encoding.c.o
 
 # target to build an object file
 encoding.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/encoding.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/encoding.c.o
 .PHONY : encoding.c.o
 
 encoding.i: encoding.c.i
@@ -348,7 +348,7 @@ encoding.i: encoding.c.i
 
 # target to preprocess a source file
 encoding.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/encoding.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/encoding.c.i
 .PHONY : encoding.c.i
 
 encoding.s: encoding.c.s
@@ -357,7 +357,7 @@ encoding.s: encoding.c.s
 
 # target to generate assembly for a file
 encoding.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/encoding.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/encoding.c.s
 .PHONY : encoding.c.s
 
 login.o: login.c.o
@@ -366,7 +366,7 @@ login.o: login.c.o
 
 # target to build an object file
 login.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/login.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/login.c.o
 .PHONY : login.c.o
 
 login.i: login.c.i
@@ -375,7 +375,7 @@ login.i: login.c.i
 
 # target to preprocess a source file
 login.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/login.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/login.c.i
 .PHONY : login.c.i
 
 login.s: login.c.s
@@ -384,7 +384,7 @@ login.s: login.c.s
 
 # target to generate assembly for a file
 login.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/login.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/login.c.s
 .PHONY : login.c.s
 
 md5.o: md5.c.o
@@ -393,7 +393,7 @@ md5.o: md5.c.o
 
 # target to build an object file
 md5.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/md5.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/md5.c.o
 .PHONY : md5.c.o
 
 md5.i: md5.c.i
@@ -402,7 +402,7 @@ md5.i: md5.c.i
 
 # target to preprocess a source file
 md5.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/md5.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/md5.c.i
 .PHONY : md5.c.i
 
 md5.s: md5.c.s
@@ -411,7 +411,7 @@ md5.s: md5.c.s
 
 # target to generate assembly for a file
 md5.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/md5.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/md5.c.s
 .PHONY : md5.c.s
 
 read.o: read.c.o
@@ -420,7 +420,7 @@ read.o: read.c.o
 
 # target to build an object file
 read.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/read.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/read.c.o
 .PHONY : read.c.o
 
 read.i: read.c.i
@@ -429,7 +429,7 @@ read.i: read.c.i
 
 # target to preprocess a source file
 read.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/read.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/read.c.i
 .PHONY : read.c.i
 
 read.s: read.c.s
@@ -438,7 +438,7 @@ read.s: read.c.s
 
 # target to generate assembly for a file
 read.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/read.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/read.c.s
 .PHONY : read.c.s
 
 tun.o: tun.c.o
@@ -447,7 +447,7 @@ tun.o: tun.c.o
 
 # target to build an object file
 tun.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/tun.c.o
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/tun.c.o
 .PHONY : tun.c.o
 
 tun.i: tun.c.i
@@ -456,7 +456,7 @@ tun.i: tun.c.i
 
 # target to preprocess a source file
 tun.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/tun.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/tun.c.i
 .PHONY : tun.c.i
 
 tun.s: tun.c.s
@@ -465,7 +465,7 @@ tun.s: tun.c.s
 
 # target to generate assembly for a file
 tun.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/tun.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f src/common/CMakeFiles/common.dir/build.make src/common/CMakeFiles/common.dir/tun.c.s
 .PHONY : tun.c.s
 
 # Help Target
@@ -474,12 +474,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/local"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... install/strip"
-	@echo "... install"
+	@echo "... install/local"
 	@echo "... list_install_components"
+	@echo "... rebuild_cache"
+	@echo "... install"
+	@echo "... edit_cache"
 	@echo "... common"
 	@echo "... base128.o"
 	@echo "... base128.i"
@@ -525,6 +525,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /data/data/com.termux/files/home/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /data/data/com.termux/files/home/github/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

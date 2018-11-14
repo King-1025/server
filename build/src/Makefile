@@ -48,25 +48,13 @@ RM = /data/data/com.termux/files/usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/data/com.termux/files/home/iodine
+CMAKE_SOURCE_DIR = /data/data/com.termux/files/home/github/iodine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/data/com.termux/files/home/iodine/build
+CMAKE_BINARY_DIR = /data/data/com.termux/files/home/github/iodine/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # Special rule for the target install/strip
 install/strip: preinstall
@@ -80,17 +68,17 @@ install/strip/fast: preinstall/fast
 	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/data/data/com.termux/files/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/data/data/com.termux/files/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/data/data/com.termux/files/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -113,6 +101,18 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/data/data/com.termux/files/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/data/data/com.termux/files/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -126,14 +126,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /data/data/com.termux/files/home/iodine/build && $(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/iodine/build/CMakeFiles /data/data/com.termux/files/home/iodine/build/src/CMakeFiles/progress.marks
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/iodine/build/CMakeFiles 0
+	cd /data/data/com.termux/files/home/github/iodine/build && $(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/github/iodine/build/CMakeFiles /data/data/com.termux/files/home/github/iodine/build/src/CMakeFiles/progress.marks
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/data/com.termux/files/home/github/iodine/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -143,210 +143,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /data/data/com.termux/files/home/github/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /data/data/com.termux/files/home/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /data/data/com.termux/files/home/github/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-# Convenience name for target.
-src/CMakeFiles/iodined.dir/rule:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/iodined.dir/rule
-.PHONY : src/CMakeFiles/iodined.dir/rule
-
-# Convenience name for target.
-iodined: src/CMakeFiles/iodined.dir/rule
-
-.PHONY : iodined
-
-# fast build rule for target.
-iodined/fast:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/build
-.PHONY : iodined/fast
-
-# Convenience name for target.
-src/CMakeFiles/iodine.dir/rule:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/iodine.dir/rule
-.PHONY : src/CMakeFiles/iodine.dir/rule
-
-# Convenience name for target.
-iodine: src/CMakeFiles/iodine.dir/rule
-
-.PHONY : iodine
-
-# fast build rule for target.
-iodine/fast:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/build
-.PHONY : iodine/fast
-
-client/client.o: client/client.c.o
-
-.PHONY : client/client.o
-
-# target to build an object file
-client/client.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/client.c.o
-.PHONY : client/client.c.o
-
-client/client.i: client/client.c.i
-
-.PHONY : client/client.i
-
-# target to preprocess a source file
-client/client.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/client.c.i
-.PHONY : client/client.c.i
-
-client/client.s: client/client.c.s
-
-.PHONY : client/client.s
-
-# target to generate assembly for a file
-client/client.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/client.c.s
-.PHONY : client/client.c.s
-
-client/iodine.o: client/iodine.c.o
-
-.PHONY : client/iodine.o
-
-# target to build an object file
-client/iodine.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/iodine.c.o
-.PHONY : client/iodine.c.o
-
-client/iodine.i: client/iodine.c.i
-
-.PHONY : client/iodine.i
-
-# target to preprocess a source file
-client/iodine.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/iodine.c.i
-.PHONY : client/iodine.c.i
-
-client/iodine.s: client/iodine.c.s
-
-.PHONY : client/iodine.s
-
-# target to generate assembly for a file
-client/iodine.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/iodine.c.s
-.PHONY : client/iodine.c.s
-
-client/util.o: client/util.c.o
-
-.PHONY : client/util.o
-
-# target to build an object file
-client/util.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/util.c.o
-.PHONY : client/util.c.o
-
-client/util.i: client/util.c.i
-
-.PHONY : client/util.i
-
-# target to preprocess a source file
-client/util.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/util.c.i
-.PHONY : client/util.c.i
-
-client/util.s: client/util.c.s
-
-.PHONY : client/util.s
-
-# target to generate assembly for a file
-client/util.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodine.dir/build.make src/CMakeFiles/iodine.dir/client/util.c.s
-.PHONY : client/util.c.s
-
-server/fw_query.o: server/fw_query.c.o
-
-.PHONY : server/fw_query.o
-
-# target to build an object file
-server/fw_query.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/fw_query.c.o
-.PHONY : server/fw_query.c.o
-
-server/fw_query.i: server/fw_query.c.i
-
-.PHONY : server/fw_query.i
-
-# target to preprocess a source file
-server/fw_query.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/fw_query.c.i
-.PHONY : server/fw_query.c.i
-
-server/fw_query.s: server/fw_query.c.s
-
-.PHONY : server/fw_query.s
-
-# target to generate assembly for a file
-server/fw_query.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/fw_query.c.s
-.PHONY : server/fw_query.c.s
-
-server/iodined.o: server/iodined.c.o
-
-.PHONY : server/iodined.o
-
-# target to build an object file
-server/iodined.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/iodined.c.o
-.PHONY : server/iodined.c.o
-
-server/iodined.i: server/iodined.c.i
-
-.PHONY : server/iodined.i
-
-# target to preprocess a source file
-server/iodined.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/iodined.c.i
-.PHONY : server/iodined.c.i
-
-server/iodined.s: server/iodined.c.s
-
-.PHONY : server/iodined.s
-
-# target to generate assembly for a file
-server/iodined.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/iodined.c.s
-.PHONY : server/iodined.c.s
-
-server/user.o: server/user.c.o
-
-.PHONY : server/user.o
-
-# target to build an object file
-server/user.c.o:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/user.c.o
-.PHONY : server/user.c.o
-
-server/user.i: server/user.c.i
-
-.PHONY : server/user.i
-
-# target to preprocess a source file
-server/user.c.i:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/user.c.i
-.PHONY : server/user.c.i
-
-server/user.s: server/user.c.s
-
-.PHONY : server/user.s
-
-# target to generate assembly for a file
-server/user.c.s:
-	cd /data/data/com.termux/files/home/iodine/build && $(MAKE) -f src/CMakeFiles/iodined.dir/build.make src/CMakeFiles/iodined.dir/server/user.c.s
-.PHONY : server/user.c.s
 
 # Help Target
 help:
@@ -354,32 +162,12 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/local"
 	@echo "... install/strip"
-	@echo "... install"
+	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... install"
 	@echo "... edit_cache"
-	@echo "... iodined"
-	@echo "... iodine"
-	@echo "... client/client.o"
-	@echo "... client/client.i"
-	@echo "... client/client.s"
-	@echo "... client/iodine.o"
-	@echo "... client/iodine.i"
-	@echo "... client/iodine.s"
-	@echo "... client/util.o"
-	@echo "... client/util.i"
-	@echo "... client/util.s"
-	@echo "... server/fw_query.o"
-	@echo "... server/fw_query.i"
-	@echo "... server/fw_query.s"
-	@echo "... server/iodined.o"
-	@echo "... server/iodined.i"
-	@echo "... server/iodined.s"
-	@echo "... server/user.o"
-	@echo "... server/user.i"
-	@echo "... server/user.s"
 .PHONY : help
 
 
@@ -391,6 +179,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /data/data/com.termux/files/home/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /data/data/com.termux/files/home/github/iodine/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,8 +1,8 @@
-# Install script for directory: /data/data/com.termux/files/home/iodine/src/common
+# Install script for directory: /data/data/com.termux/files/home/github/iodine/src/common
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/data/data/com.termux/files/home/iodine/result")
+  set(CMAKE_INSTALL_PREFIX "/data/data/com.termux/files/home/github/iodine/result")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

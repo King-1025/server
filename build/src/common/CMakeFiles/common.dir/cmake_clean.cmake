@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "base64u.c"
   "CMakeFiles/common.dir/tun.c.o"
   "CMakeFiles/common.dir/dns.c.o"
   "CMakeFiles/common.dir/read.c.o"

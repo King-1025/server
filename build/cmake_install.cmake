@@ -1,8 +1,8 @@
-# Install script for directory: /data/data/com.termux/files/home/iodine
+# Install script for directory: /data/data/com.termux/files/home/github/iodine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/data/data/com.termux/files/home/iodine/result")
+  set(CMAKE_INSTALL_PREFIX "/data/data/com.termux/files/home/github/iodine/result")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,20 +39,20 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/docs/iodine" TYPE FILE FILES
-    "/data/data/com.termux/files/home/iodine/README-android.txt"
-    "/data/data/com.termux/files/home/iodine/README-win32.txt"
-    "/data/data/com.termux/files/home/iodine/CHANGELOG"
-    "/data/data/com.termux/files/home/iodine/README.md"
+    "/data/data/com.termux/files/home/github/iodine/README-android.txt"
+    "/data/data/com.termux/files/home/github/iodine/README-win32.txt"
+    "/data/data/com.termux/files/home/github/iodine/CHANGELOG"
+    "/data/data/com.termux/files/home/github/iodine/README.md"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/docs/iodine" TYPE DIRECTORY FILES "/data/data/com.termux/files/home/iodine/docs/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/docs/iodine" TYPE DIRECTORY FILES "/data/data/com.termux/files/home/github/iodine/docs/")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/data/data/com.termux/files/home/iodine/build/src/cmake_install.cmake")
+  include("/data/data/com.termux/files/home/github/iodine/build/src/cmake_install.cmake")
 
 endif()
 
@@ -64,5 +64,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/data/data/com.termux/files/home/iodine/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/data/data/com.termux/files/home/github/iodine/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

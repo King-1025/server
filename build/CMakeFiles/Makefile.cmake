@@ -11,7 +11,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.12.4/CMakeCCompiler.cmake"
   "CMakeFiles/3.12.4/CMakeSystem.cmake"
   "../src/CMakeLists.txt"
+  "../src/client/CMakeLists.txt"
   "../src/common/CMakeLists.txt"
+  "../src/server/CMakeLists.txt"
   "/data/data/com.termux/files/usr/share/cmake-3.12/Modules/CMakeCInformation.cmake"
   "/data/data/com.termux/files/usr/share/cmake-3.12/Modules/CMakeCommonLanguageInclude.cmake"
   "/data/data/com.termux/files/usr/share/cmake-3.12/Modules/CMakeGenericSystem.cmake"
@@ -41,11 +43,13 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/common/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/server/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/client/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "src/CMakeFiles/iodined.dir/DependInfo.cmake"
-  "src/CMakeFiles/iodine.dir/DependInfo.cmake"
   "src/common/CMakeFiles/common.dir/DependInfo.cmake"
+  "src/server/CMakeFiles/iodined.dir/DependInfo.cmake"
+  "src/client/CMakeFiles/iodine.dir/DependInfo.cmake"
   )

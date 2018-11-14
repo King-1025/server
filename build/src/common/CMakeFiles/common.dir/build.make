@@ -43,10 +43,10 @@ RM = /data/data/com.termux/files/usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /data/data/com.termux/files/home/iodine
+CMAKE_SOURCE_DIR = /data/data/com.termux/files/home/github/iodine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /data/data/com.termux/files/home/iodine/build
+CMAKE_BINARY_DIR = /data/data/com.termux/files/home/github/iodine/build
 
 # Include any dependencies generated for this target.
 include src/common/CMakeFiles/common.dir/depend.make
@@ -57,152 +57,148 @@ include src/common/CMakeFiles/common.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/common/CMakeFiles/common.dir/flags.make
 
-src/common/base64u.c:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "create base64u.c"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && echo /*No\ use\ in\ editing,\ auto\ create!*/ > base64u.c
-
 src/common/CMakeFiles/common.dir/tun.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/tun.c.o: ../src/common/tun.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/common/CMakeFiles/common.dir/tun.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/tun.c.o   -c /data/data/com.termux/files/home/iodine/src/common/tun.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/common/CMakeFiles/common.dir/tun.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/tun.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/tun.c
 
 src/common/CMakeFiles/common.dir/tun.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/tun.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/tun.c > CMakeFiles/common.dir/tun.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/tun.c > CMakeFiles/common.dir/tun.c.i
 
 src/common/CMakeFiles/common.dir/tun.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/tun.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/tun.c -o CMakeFiles/common.dir/tun.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/tun.c -o CMakeFiles/common.dir/tun.c.s
 
 src/common/CMakeFiles/common.dir/dns.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/dns.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/common/CMakeFiles/common.dir/dns.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/dns.c.o   -c /data/data/com.termux/files/home/iodine/src/common/dns.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/common/CMakeFiles/common.dir/dns.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/dns.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/dns.c
 
 src/common/CMakeFiles/common.dir/dns.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/dns.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/dns.c > CMakeFiles/common.dir/dns.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/dns.c > CMakeFiles/common.dir/dns.c.i
 
 src/common/CMakeFiles/common.dir/dns.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/dns.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/dns.c -o CMakeFiles/common.dir/dns.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/dns.c -o CMakeFiles/common.dir/dns.c.s
 
 src/common/CMakeFiles/common.dir/read.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/read.c.o: ../src/common/read.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/common/CMakeFiles/common.dir/read.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/read.c.o   -c /data/data/com.termux/files/home/iodine/src/common/read.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/common/CMakeFiles/common.dir/read.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/read.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/read.c
 
 src/common/CMakeFiles/common.dir/read.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/read.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/read.c > CMakeFiles/common.dir/read.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/read.c > CMakeFiles/common.dir/read.c.i
 
 src/common/CMakeFiles/common.dir/read.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/read.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/read.c -o CMakeFiles/common.dir/read.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/read.c -o CMakeFiles/common.dir/read.c.s
 
 src/common/CMakeFiles/common.dir/encoding.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/encoding.c.o: ../src/common/encoding.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/common/CMakeFiles/common.dir/encoding.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/encoding.c.o   -c /data/data/com.termux/files/home/iodine/src/common/encoding.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object src/common/CMakeFiles/common.dir/encoding.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/encoding.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/encoding.c
 
 src/common/CMakeFiles/common.dir/encoding.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/encoding.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/encoding.c > CMakeFiles/common.dir/encoding.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/encoding.c > CMakeFiles/common.dir/encoding.c.i
 
 src/common/CMakeFiles/common.dir/encoding.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/encoding.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/encoding.c -o CMakeFiles/common.dir/encoding.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/encoding.c -o CMakeFiles/common.dir/encoding.c.s
 
 src/common/CMakeFiles/common.dir/login.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/login.c.o: ../src/common/login.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/common/CMakeFiles/common.dir/login.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/login.c.o   -c /data/data/com.termux/files/home/iodine/src/common/login.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/common/CMakeFiles/common.dir/login.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/login.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/login.c
 
 src/common/CMakeFiles/common.dir/login.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/login.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/login.c > CMakeFiles/common.dir/login.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/login.c > CMakeFiles/common.dir/login.c.i
 
 src/common/CMakeFiles/common.dir/login.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/login.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/login.c -o CMakeFiles/common.dir/login.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/login.c -o CMakeFiles/common.dir/login.c.s
 
 src/common/CMakeFiles/common.dir/base32.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/base32.c.o: ../src/common/base32.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/common/CMakeFiles/common.dir/base32.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base32.c.o   -c /data/data/com.termux/files/home/iodine/src/common/base32.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/common/CMakeFiles/common.dir/base32.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base32.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/base32.c
 
 src/common/CMakeFiles/common.dir/base32.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/base32.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/base32.c > CMakeFiles/common.dir/base32.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/base32.c > CMakeFiles/common.dir/base32.c.i
 
 src/common/CMakeFiles/common.dir/base32.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/base32.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/base32.c -o CMakeFiles/common.dir/base32.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/base32.c -o CMakeFiles/common.dir/base32.c.s
 
 src/common/CMakeFiles/common.dir/base64.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/base64.c.o: ../src/common/base64.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/common/CMakeFiles/common.dir/base64.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base64.c.o   -c /data/data/com.termux/files/home/iodine/src/common/base64.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object src/common/CMakeFiles/common.dir/base64.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base64.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/base64.c
 
 src/common/CMakeFiles/common.dir/base64.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/base64.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/base64.c > CMakeFiles/common.dir/base64.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/base64.c > CMakeFiles/common.dir/base64.c.i
 
 src/common/CMakeFiles/common.dir/base64.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/base64.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/base64.c -o CMakeFiles/common.dir/base64.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/base64.c -o CMakeFiles/common.dir/base64.c.s
 
 src/common/CMakeFiles/common.dir/base64u.c.o: src/common/CMakeFiles/common.dir/flags.make
-src/common/CMakeFiles/common.dir/base64u.c.o: src/common/base64u.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/common/CMakeFiles/common.dir/base64u.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base64u.c.o   -c /data/data/com.termux/files/home/iodine/build/src/common/base64u.c
+src/common/CMakeFiles/common.dir/base64u.c.o: ../src/common/base64u.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object src/common/CMakeFiles/common.dir/base64u.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base64u.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/base64u.c
 
 src/common/CMakeFiles/common.dir/base64u.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/base64u.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/build/src/common/base64u.c > CMakeFiles/common.dir/base64u.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/base64u.c > CMakeFiles/common.dir/base64u.c.i
 
 src/common/CMakeFiles/common.dir/base64u.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/base64u.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/build/src/common/base64u.c -o CMakeFiles/common.dir/base64u.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/base64u.c -o CMakeFiles/common.dir/base64u.c.s
 
 src/common/CMakeFiles/common.dir/base128.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/base128.c.o: ../src/common/base128.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object src/common/CMakeFiles/common.dir/base128.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base128.c.o   -c /data/data/com.termux/files/home/iodine/src/common/base128.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object src/common/CMakeFiles/common.dir/base128.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/base128.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/base128.c
 
 src/common/CMakeFiles/common.dir/base128.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/base128.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/base128.c > CMakeFiles/common.dir/base128.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/base128.c > CMakeFiles/common.dir/base128.c.i
 
 src/common/CMakeFiles/common.dir/base128.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/base128.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/base128.c -o CMakeFiles/common.dir/base128.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/base128.c -o CMakeFiles/common.dir/base128.c.s
 
 src/common/CMakeFiles/common.dir/md5.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/md5.c.o: ../src/common/md5.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object src/common/CMakeFiles/common.dir/md5.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/md5.c.o   -c /data/data/com.termux/files/home/iodine/src/common/md5.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object src/common/CMakeFiles/common.dir/md5.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/md5.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/md5.c
 
 src/common/CMakeFiles/common.dir/md5.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/md5.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/md5.c > CMakeFiles/common.dir/md5.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/md5.c > CMakeFiles/common.dir/md5.c.i
 
 src/common/CMakeFiles/common.dir/md5.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/md5.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/md5.c -o CMakeFiles/common.dir/md5.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/md5.c -o CMakeFiles/common.dir/md5.c.s
 
 src/common/CMakeFiles/common.dir/common.c.o: src/common/CMakeFiles/common.dir/flags.make
 src/common/CMakeFiles/common.dir/common.c.o: ../src/common/common.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object src/common/CMakeFiles/common.dir/common.c.o"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/common.c.o   -c /data/data/com.termux/files/home/iodine/src/common/common.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object src/common/CMakeFiles/common.dir/common.c.o"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/common.dir/common.c.o   -c /data/data/com.termux/files/home/github/iodine/src/common/common.c
 
 src/common/CMakeFiles/common.dir/common.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/common.dir/common.c.i"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/iodine/src/common/common.c > CMakeFiles/common.dir/common.c.i
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /data/data/com.termux/files/home/github/iodine/src/common/common.c > CMakeFiles/common.dir/common.c.i
 
 src/common/CMakeFiles/common.dir/common.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/common.dir/common.c.s"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/iodine/src/common/common.c -o CMakeFiles/common.dir/common.c.s
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && /data/data/com.termux/files/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /data/data/com.termux/files/home/github/iodine/src/common/common.c -o CMakeFiles/common.dir/common.c.s
 
 # Object files for target common
 common_OBJECTS = \
@@ -234,8 +230,8 @@ lib/libcommon.so: src/common/CMakeFiles/common.dir/md5.c.o
 lib/libcommon.so: src/common/CMakeFiles/common.dir/common.c.o
 lib/libcommon.so: src/common/CMakeFiles/common.dir/build.make
 lib/libcommon.so: src/common/CMakeFiles/common.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/data/com.termux/files/home/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C shared library ../../lib/libcommon.so"
-	cd /data/data/com.termux/files/home/iodine/build/src/common && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/common.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/data/data/com.termux/files/home/github/iodine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking C shared library ../../lib/libcommon.so"
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/common.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/common/CMakeFiles/common.dir/build: lib/libcommon.so
@@ -243,10 +239,10 @@ src/common/CMakeFiles/common.dir/build: lib/libcommon.so
 .PHONY : src/common/CMakeFiles/common.dir/build
 
 src/common/CMakeFiles/common.dir/clean:
-	cd /data/data/com.termux/files/home/iodine/build/src/common && $(CMAKE_COMMAND) -P CMakeFiles/common.dir/cmake_clean.cmake
+	cd /data/data/com.termux/files/home/github/iodine/build/src/common && $(CMAKE_COMMAND) -P CMakeFiles/common.dir/cmake_clean.cmake
 .PHONY : src/common/CMakeFiles/common.dir/clean
 
-src/common/CMakeFiles/common.dir/depend: src/common/base64u.c
-	cd /data/data/com.termux/files/home/iodine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /data/data/com.termux/files/home/iodine /data/data/com.termux/files/home/iodine/src/common /data/data/com.termux/files/home/iodine/build /data/data/com.termux/files/home/iodine/build/src/common /data/data/com.termux/files/home/iodine/build/src/common/CMakeFiles/common.dir/DependInfo.cmake --color=$(COLOR)
+src/common/CMakeFiles/common.dir/depend:
+	cd /data/data/com.termux/files/home/github/iodine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /data/data/com.termux/files/home/github/iodine /data/data/com.termux/files/home/github/iodine/src/common /data/data/com.termux/files/home/github/iodine/build /data/data/com.termux/files/home/github/iodine/build/src/common /data/data/com.termux/files/home/github/iodine/build/src/common/CMakeFiles/common.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/common/CMakeFiles/common.dir/depend
 

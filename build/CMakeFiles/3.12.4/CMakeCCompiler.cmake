@@ -43,7 +43,7 @@ set(CMAKE_C_IGNORE_EXTENSIONS h;H;o;O;obj;OBJ;def;DEF;rc;RC)
 set(CMAKE_C_LINKER_PREFERENCE 10)
 
 # Save compiler ABI information.
-set(CMAKE_C_SIZEOF_DATA_PTR "8")
+set(CMAKE_C_SIZEOF_DATA_PTR "4")
 set(CMAKE_C_COMPILER_ABI "ELF")
 set(CMAKE_C_LIBRARY_ARCHITECTURE "")
 
@@ -69,5 +69,5 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "gcc;dl;c;gcc;dl")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/data/data/com.termux/files/usr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "/data/data/com.termux/files/usr/lib;/data/data/com.termux/files/home/self/lib;/data/data/com.termux/files/home/self/lib64")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

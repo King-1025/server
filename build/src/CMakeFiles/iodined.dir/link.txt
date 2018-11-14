@@ -1,1 +1,0 @@
-/data/data/com.termux/files/usr/bin/cc   -rdynamic CMakeFiles/iodined.dir/server/fw_query.c.o CMakeFiles/iodined.dir/server/iodined.c.o CMakeFiles/iodined.dir/server/user.c.o  -o ../bin/iodined -Wl,-rpath,/data/data/com.termux/files/home/iodine/build/lib: ../lib/libcommon.so 

@@ -10,24 +10,30 @@ src/common/CMakeFiles/common.dir/base32.c.o: ../src/common/encoding.h
 src/common/CMakeFiles/common.dir/base64.c.o: ../src/common/base64.c
 src/common/CMakeFiles/common.dir/base64.c.o: ../src/common/encoding.h
 
-src/common/CMakeFiles/common.dir/base64u.c.o: src/common/base64u.c
+src/common/CMakeFiles/common.dir/base64u.c.o: ../src/common/base64u.c
+src/common/CMakeFiles/common.dir/base64u.c.o: ../src/common/encoding.h
 
 src/common/CMakeFiles/common.dir/common.c.o: ../src/common/common.c
 src/common/CMakeFiles/common.dir/common.c.o: ../src/common/common.h
+src/common/CMakeFiles/common.dir/common.c.o: ../src/common/windows.h
 
+src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/android_dns.h
 src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/common.h
 src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/dns.c
 src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/dns.h
 src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/encoding.h
 src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/read.h
+src/common/CMakeFiles/common.dir/dns.c.o: ../src/common/windows.h
 
 src/common/CMakeFiles/common.dir/encoding.c.o: ../src/common/common.h
 src/common/CMakeFiles/common.dir/encoding.c.o: ../src/common/encoding.c
 src/common/CMakeFiles/common.dir/encoding.c.o: ../src/common/encoding.h
+src/common/CMakeFiles/common.dir/encoding.c.o: ../src/common/windows.h
 
 src/common/CMakeFiles/common.dir/login.c.o: ../src/common/login.c
 src/common/CMakeFiles/common.dir/login.c.o: ../src/common/login.h
 src/common/CMakeFiles/common.dir/login.c.o: ../src/common/md5.h
+src/common/CMakeFiles/common.dir/login.c.o: ../src/common/windows.h
 
 src/common/CMakeFiles/common.dir/md5.c.o: ../src/common/md5.c
 src/common/CMakeFiles/common.dir/md5.c.o: ../src/common/md5.h
@@ -38,4 +44,5 @@ src/common/CMakeFiles/common.dir/read.c.o: ../src/common/read.h
 src/common/CMakeFiles/common.dir/tun.c.o: ../src/common/common.h
 src/common/CMakeFiles/common.dir/tun.c.o: ../src/common/tun.c
 src/common/CMakeFiles/common.dir/tun.c.o: ../src/common/tun.h
+src/common/CMakeFiles/common.dir/tun.c.o: ../src/common/windows.h
 
