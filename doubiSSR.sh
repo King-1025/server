@@ -585,13 +585,13 @@ function doubiSSR()
     local ssr_1=($(sed -n "/dl1.*ss/p" ${data} | sed 's/\(.*\)ssr\(.*\)" t\(.*\)/ssr\2/g' | awk -F '"' '{print $1}' | sed "s/ //g"))
     is_null "ssr_1" "${ssr_1}" $(read_record SAVE ${record_doubiSSR})
     if [ ${size} -lt ${#ssr_1[@]} ]; then size=${#ssr_1[@]}; fi
-    local ssr_2=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ss:\/\//p" | sed "s/\(.*\)ss\(.*\)/ssr\2/g" | sed "s/ //g"))
-    is_null "ssr_2" "${ssr_2}" $(read_record SAVE ${record_doubiSSR})
-    if [ ${size} -lt ${#ssr_2[@]} ]; then size=${#ssr_2[@]}; fi
+#    local ssr_2=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ss:\/\//p" | sed "s/\(.*\)ss\(.*\)/ssr\2/g" | sed "s/ //g"))
+#    is_null "ssr_2" "${ssr_2}" $(read_record SAVE ${record_doubiSSR})
+#    if [ ${size} -lt ${#ssr_2[@]} ]; then size=${#ssr_2[@]}; fi
     for((i=0;i<${size};i++)); do
       echo "ssr*URL*${ssr[i]}*导入SSR" > ${list}
       echo "ssr*URL*${ssr_1[i]}*导入SSR" >> ${list}
-      echo "ssr*URL*${ssr_2[i]}*导入SSR" >> ${list}
+#      echo "ssr*URL*${ssr_2[i]}*导入SSR" >> ${list}
       save ${list} ${record_doubiSSR} "doubiSSR"
     done
     rm -rf ${list} > /dev/null 2>&1
