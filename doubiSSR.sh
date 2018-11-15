@@ -11,7 +11,7 @@ SAVE_FILE="$ROOT/output"
 SELF_UA=0
 RANGE_START=0
 RANGE_END=2
-PROCESS=2
+PROCESS=1
 LOG_FILE="--"
 LOG_LEVEL=1
 VERSION="1.0"
@@ -580,24 +580,24 @@ function doubiSSR()
   init_record ${record_doubiSSR}
   declare -a page=("https://doub.io/sszhfx/")
    for i0 in ${page}; do
-    read -u 6
-    {
+#    read -u 6
+ #   {
     data=$(mktemp -u)
     log i "fetch ${i0}"
     fetch "${data}" "${i0}" "${i0}"
     if [ $? != 0 ]||[ ! -e ${data} ];then continue; fi
-    declare -a view=$(n=$(sed -n "/page-numbers current/p" ${data} | awk -F ">|<" '{print $3}');if [ "$n" != "" ]; then echo https://doub.io/sszhfx/comment-page-{$n,$((n-1)),$((n-2))}/#comments; fi)
+    declare -a view=$(n=$(sed -n "/page-numbers current/p" ${data} | awk -F ">|<" '{print $3}');if [ "$n" != "" ]; then echo https://doub.io/sszhfx/comment-page-{$((n-2)),$((n-1)),$((n-0))}/#comments; fi)
     rm ${data} > /dev/null 2>&1
     for i1 in ${view}; do
-     read -u 6
-     {
+#     read -u 6
+#     {
      data=$(mktemp -u)
      log i "fetch ${i1}"
      fetch "${data}" "${i1}" "${i1}"
      if [ $? != 0 ]||[ ! -e ${data} ];then continue; fi
      local list=$(mktemp -u)
      local size=0
-     local ss=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ss:\/\//p" | sed "s/\(.*\)ss\(.*\)/ss\2/g" | sed "s/ //g" | sed "s/ //g"))
+     local ss=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ss:\/\//p" | sed "s/\(.*\)ss\(.*\)/ssr\2/g" | sed "s/ //g" | sed "s/ //g"))
      is_null "ss" "${ss}" $(read_record SAVE ${record_doubiSSR})
      if [ ${size} -lt ${#ss[@]} ]; then size=${#ss[@]}; fi
      local ssr_0=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ssr:\/\//p" | sed "s/\(.*\)ssr\(.*\)/ssr\2/g" | sed "s/ //g" | sed "s/ //g"))
@@ -615,14 +615,14 @@ function doubiSSR()
      rm -rf ${list} > /dev/null 2>&1
      plus_record TOTAL 1 ${record_doubiSSR}
      rm ${data} > /dev/null 2>&1
-     echo >&6
-     } &
+ #    echo >&6
+  #   } &
      done
-     wait
-    echo >&6
-    } &
+   #  wait
+   # echo >&6
+  #  } &
     done
-    wait
+    #wait
   may_fix_html "doubiSSR"
   log i "doubiSSR done!"
 }
