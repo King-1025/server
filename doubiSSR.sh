@@ -587,7 +587,7 @@ function doubiSSR()
     if [ ${size} -lt ${#ssr_1[@]} ]; then size=${#ssr_1[@]}; fi
     local ssr_2=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ss:\/\//p" | sed "s/\(.*\)ss\(.*\)/ssr\2/g" | sed "s/ //g"))
     is_null "ssr_2" "${ssr_2}" $(read_record SAVE ${record_doubiSSR})
-    if [ ${size} -lt ${#ssr[@]} ]; then size=${#ssr[@]}; fi
+    if [ ${size} -lt ${#ssr_2[@]} ]; then size=${#ssr_2[@]}; fi
     for((i=0;i<${size};i++)); do
       echo "ssr*URL*${ssr[i]}*导入SSR" > ${list}
       echo "ssr*URL*${ssr_1[i]}*导入SSR" >> ${list}
