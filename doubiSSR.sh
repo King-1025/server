@@ -5,7 +5,7 @@
 
 ROOT=.
 REQUIREMENT="curl sed ua awk"
-CURL_OPTION="-# -sL"
+CURL_OPTION="-#"
 SAVE_TYPE="txt"
 SAVE_FILE="$ROOT/output"
 SELF_UA=0
@@ -296,7 +296,7 @@ function fetch()
 {
    #set -x
    echo "" > $1
-   curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 30 --retry 3 --retry-max-time 10 $CURL_OPTION $2
+   curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 3 --retry 1 --retry-max-time 2 $CURL_OPTION $2
    sleep 1
    #set +x
 }   
@@ -586,7 +586,7 @@ function doubiSSR()
     log i "fetch ${i0}"
     fetch "${data}" "${i0}" "${i0}"
     if [ $? != 0 ]||[ ! -e ${data} ];then continue; fi
-    declare -a view=$(n=$(sed -n "/page-numbers current/p" ${data} | awk -F ">|<" '{print $3}');echo https://doub.io/sszhfx/comment-page-{$n,$((n-1)),$((n-2))}/#comments)
+    declare -a view=$(n=$(sed -n "/page-numbers current/p" ${data} | awk -F ">|<" '{print $3}');if [ "$n" != "" ]; then echo https://doub.io/sszhfx/comment-page-{$n,$((n-1)),$((n-2))}/#comments; fi)
     rm ${data} > /dev/null 2>&1
     for i1 in ${view}; do
      read -u 6
