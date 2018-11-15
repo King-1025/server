@@ -174,7 +174,7 @@ function make_data()
     local group=$(url_safe_base64_encode STRING $4)
 #    local remarks=$(echo "$3" | base64)
 #    local group=$(echo "$4" | base64)
-    local tmp=$(mktemp -u)
+    local tmp=$(mktemp)
     cp "$src" "$tmp"
     sed -i "s/ssr:..//g" "$tmp"
     sed -i "s/ss:..//g" "$tmp"
