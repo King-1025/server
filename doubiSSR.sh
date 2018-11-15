@@ -5,7 +5,7 @@
 
 ROOT=.
 REQUIREMENT="curl sed ua awk"
-CURL_OPTION="-#"
+CURL_OPTION="-# -sL"
 SAVE_TYPE="txt"
 SAVE_FILE="$ROOT/output"
 SELF_UA=0
@@ -296,8 +296,7 @@ function fetch()
 {
    #set -x
    echo "" > $1
-   #curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 10 --retry 1 --retry-max-time 2 $CURL_OPTION $2
-   curl -o $1 $CURL_OPTION $2
+   curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 30 --retry 3 --retry-max-time 10 $CURL_OPTION $2
    sleep 1
    #set +x
 }   
