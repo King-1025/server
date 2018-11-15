@@ -59,7 +59,8 @@ function fresh()
   maybe_clean
   git add .
   git commit -m "$update_time"
-  git push
+  #git push
+  aup
   echo "$update_time"
   echo "$SSR_URL"
 }
