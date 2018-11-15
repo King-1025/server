@@ -109,11 +109,36 @@ function url_safe_base64_decode()
        fi
        res=$(echo "$res" | base64 -d)
        if [ $? -eq 0 ]&&[ "$res" != "" ]; then
-         echo "$res"
+          echo "$res"
        fi
      done
     fi
   fi
+}
+
+function parse_format()
+{
+#  set -x
+  if [ $# -eq 1 ]; then
+   if [ -e "$1" ]; then
+    local data=($(cat $1))
+    for ((i=0;i<${#data[@]};i++)); do
+     local line="${data[i]}"
+   #  read -p "xxx:" xxx
+     for ((j=0;j<3;j++)); do
+      local res=$(url_safe_base64_decode STRING "$line")
+      echo "$res" | grep -E "{"
+      if [ $? -eq 0 ]; then break; fi
+      echo "$res" | grep -E ":"
+      if [ $? -eq 0 ]; then
+         echo "$res"
+         break
+      fi
+     done
+    done
+   fi
+  fi
+# set +x
 }
 
 function change_format()
@@ -178,7 +203,7 @@ function make_data()
     cp "$src" "$tmp"
     sed -i "s/ssr:..//g" "$tmp"
     sed -i "s/ss:..//g" "$tmp"
-    declare -a stxt=($(url_safe_base64_decode FILE "$tmp"))
+    declare -a stxt=($(parse_format "$tmp"))
     rm -rf "$tmp" > /dev/null 2>&1
     tmp=$(mktemp -u)
     local number=0
