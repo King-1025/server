@@ -504,7 +504,7 @@ function do_save()
         touch "$result"
         log i "create file:$result"
      fi
-     awk -F "*" -v file="$result" '{print $1":"$3 >> file }' "$list"
+     awk -F "*" -v file="$result" '{print $3 >> file }' "$list"
      echo "" >> "$result"
   elif [ "$SAVE_TYPE" == "html" ]; then
      local result="${SAVE_FILE}-${part}.${SAVE_TYPE}"
