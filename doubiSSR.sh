@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
 #描述:抓取逗比SSR
+#版本:1.0
+
 
 ROOT=.
 REQUIREMENT="curl sed ua awk"
-CURL_OPTION="-# -L"
+CURL_OPTION="-#"
 SAVE_TYPE="txt"
 SAVE_FILE="$ROOT/output"
 SELF_UA=0
+RANGE_START=0
+RANGE_END=2
+PROCESS=2
 LOG_FILE="--"
 LOG_LEVEL=1
+VERSION="1.0"
 INTENT="抓取逗比SSR"
 
 
@@ -237,7 +243,7 @@ function print_options()
 {
   printf "Options:\n" 
   may_printf "SAVE_FILE" "\t-o | --output\t\t%s\n" "设置输出文件"  
-  may_printf "PROCESS" "\t-p | --process\t\t%s\n" "设置进程数，默认:10"
+  may_printf "PROCESS" "\t-p | --process\t\t%s\n" "设置进程数，默认:1"
   may_printf "RANGE" "\t-r | --range\t\t%s\n" "指定抓取范围,默认:[0,2]"
   may_printf "SAVE_TYPE" "\t-t | --save-type\t%s\n" "保存类型(txt,html,file)"
   may_printf "LOG_FILE" "\t-l | --log-file\t\t%s\n" "设置日志文件"
@@ -288,9 +294,12 @@ function rand(){
 
 function fetch()
 {
+   #set -x
    echo "" > $1
-   curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 3 --retry 1 --retry-max-time 2 $CURL_OPTION $2 2>&1 > /dev/null
+   #curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 10 --retry 1 --retry-max-time 2 $CURL_OPTION $2
+   curl -o $1 $CURL_OPTION $2
    sleep 1
+   #set +x
 }   
 
 function is_null()
@@ -496,7 +505,7 @@ function do_save()
         touch "$result"
         log i "create file:$result"
      fi
-     awk -F "*" -v file="$result" '{print $3 >> file }' "$list"
+     awk -F "*" -v file="$result" '{print $1":"$3 >> file }' "$list"
      echo "" >> "$result"
   elif [ "$SAVE_TYPE" == "html" ]; then
      local result="${SAVE_FILE}-${part}.${SAVE_TYPE}"
@@ -570,34 +579,51 @@ function doubiSSR()
   log i "doubiSSR start..."
   record_doubiSSR=$ROOT/.doubiSSR_crawl_record
   init_record ${record_doubiSSR}
-  declare -a view=("https://doub.io/sszhfx/")
-   for i0 in ${view}; do
+  declare -a page=("https://doub.io/sszhfx/")
+   for i0 in ${page}; do
+    read -u 6
+    {
     data=$(mktemp -u)
     log i "fetch ${i0}"
     fetch "${data}" "${i0}" "${i0}"
     if [ $? != 0 ]||[ ! -e ${data} ];then continue; fi
-    local list=$(mktemp -u)
-    local size=0
-    #local ssr=($(sed -n '/<pre class="prettyprint linenums" >/,+20p' ${data} | sed -n "/ssr:\/\//p" | sed "s/\(.*\)ssr\(.*\)/ssr\2/g" | sed "s/ //g"))
-    local ssr=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ssr:\/\//p" | sed "s/\(.*\)ssr\(.*\)/ssr\2/g" | sed "s/ //g"))
-    is_null "ssr" "${ssr}" $(read_record SAVE ${record_doubiSSR})
-    if [ ${size} -lt ${#ssr[@]} ]; then size=${#ssr[@]}; fi
-    local ssr_1=($(sed -n "/dl1.*ss/p" ${data} | sed 's/\(.*\)ssr\(.*\)" t\(.*\)/ssr\2/g' | awk -F '"' '{print $1}' | sed "s/ //g"))
-    is_null "ssr_1" "${ssr_1}" $(read_record SAVE ${record_doubiSSR})
-    if [ ${size} -lt ${#ssr_1[@]} ]; then size=${#ssr_1[@]}; fi
-#    local ssr_2=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ss:\/\//p" | sed "s/\(.*\)ss\(.*\)/ssr\2/g" | sed "s/ //g"))
-#    is_null "ssr_2" "${ssr_2}" $(read_record SAVE ${record_doubiSSR})
-#    if [ ${size} -lt ${#ssr_2[@]} ]; then size=${#ssr_2[@]}; fi
-    for((i=0;i<${size};i++)); do
-      echo "ssr*URL*${ssr[i]}*导入SSR" > ${list}
-      echo "ssr*URL*${ssr_1[i]}*导入SSR" >> ${list}
-#      echo "ssr*URL*${ssr_2[i]}*导入SSR" >> ${list}
-      save ${list} ${record_doubiSSR} "doubiSSR"
-    done
-    rm -rf ${list} > /dev/null 2>&1
-    plus_record TOTAL 1 ${record_doubiSSR}
+    declare -a view=$(n=$(sed -n "/page-numbers current/p" ${data} | awk -F ">|<" '{print $3}');echo https://doub.io/sszhfx/comment-page-{$n,$((n-1)),$((n-2))}/#comments)
     rm ${data} > /dev/null 2>&1
-  done
+    for i1 in ${view}; do
+     read -u 6
+     {
+     data=$(mktemp -u)
+     log i "fetch ${i1}"
+     fetch "${data}" "${i1}" "${i1}"
+     if [ $? != 0 ]||[ ! -e ${data} ];then continue; fi
+     local list=$(mktemp -u)
+     local size=0
+     local ss=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ss:\/\//p" | sed "s/\(.*\)ss\(.*\)/ss\2/g" | sed "s/ //g" | sed "s/ //g"))
+     is_null "ss" "${ss}" $(read_record SAVE ${record_doubiSSR})
+     if [ ${size} -lt ${#ss[@]} ]; then size=${#ss[@]}; fi
+     local ssr_0=($(sed -n '/prettyprint linenums/,/<\/pre>/p' ${data} | grep -Ev '(strong>|://xxx)' |  sed -n "/ssr:\/\//p" | sed "s/\(.*\)ssr\(.*\)/ssr\2/g" | sed "s/ //g" | sed "s/ //g"))
+     is_null "ssr_0" "${ssr_0}" $(read_record SAVE ${record_doubiSSR})
+     if [ ${size} -lt ${#ssr_0[@]} ]; then size=${#ssr_0[@]}; fi
+     local ssr_1=($(sed -n "/dl1.*ss/p" ${data} | sed 's/\(.*\)ssr\(.*\)" t\(.*\)/ssr\2/g' | awk -F '"' '{print $1}' | sed "s/ //g"))
+     is_null "ssr_1" "${ssr_1}" $(read_record SAVE ${record_doubiSSR})
+     if [ ${size} -lt ${#ssr_1[@]} ]; then size=${#ssr_1[@]}; fi
+     for((i=0;i<${size};i++)); do
+       echo "ss*URL*${ss[i]}*导入评论区SS" > ${list}
+       echo "ssr_0*URL*${ssr_0[i]}*导入评论区SSR" >> ${list}
+       echo "ssr_1*URL*${ssr_1[i]}*导入逗逼自建SSR" >> ${list}
+       save ${list} ${record_doubiSSR} "doubiSSR"
+     done
+     rm -rf ${list} > /dev/null 2>&1
+     plus_record TOTAL 1 ${record_doubiSSR}
+     rm ${data} > /dev/null 2>&1
+     echo >&6
+     } &
+     done
+     wait
+    echo >&6
+    } &
+    done
+    wait
   may_fix_html "doubiSSR"
   log i "doubiSSR done!"
 }

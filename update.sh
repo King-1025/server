@@ -60,7 +60,7 @@ function fresh()
   git add .
   git commit -m "$update_time"
   #git push
-  aup
+  upass -d push
   echo "$update_time"
   echo "$SSR_URL"
 }
