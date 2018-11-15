@@ -174,13 +174,10 @@ function make_data()
     local group=$(url_safe_base64_encode STRING $4)
 #   local remarks=$(echo "$3" | base64)
 #   local group=$(echo "$4" | base64)
-    set -x
     local tmp=$(mktemp -u)
     cp "$src" "$tmp"
-    if [ ! -e "$tmp" ]; then echo "data file is empty!"; exit 0; fi
     sed -i "s/ssr:..//g" "$tmp"
     sed -i "s/ss:..//g" "$tmp"
-    set +x
     declare -a stxt=($(url_safe_base64_decode FILE "$tmp"))
     rm -rf "$tmp" > /dev/null 2>&1
     tmp=$(mktemp -u)
@@ -199,6 +196,7 @@ function make_data()
      fi
     done
     echo "Total:${#stxt[@]} Valid:$number"
+    if [ ! -e "$tmp" ]; then echo "data file is empty!"; exit 0; fi
     sed -i "1i\MAX=$number" $tmp
    # mv $tmp 1
    # exit 0

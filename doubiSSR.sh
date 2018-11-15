@@ -296,7 +296,7 @@ function fetch()
 {
    #set -x
    echo "" > $1
-   curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 3 --retry 1 --retry-max-time 2 $CURL_OPTION $2
+   curl -A "$(gen_ua)" -e $3 -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 60 --retry 1 --retry-max-time 30 $CURL_OPTION $2
    sleep 1
    #set +x
 }   
