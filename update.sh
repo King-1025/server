@@ -175,10 +175,8 @@ function make_data()
 #    local remarks=$(echo "$3" | base64)
 #    local group=$(echo "$4" | base64)
     local tmp=$(mktemp -u)
-    set -x
     cp "$src" "$tmp"
     if [ ! -e "$tmp" ]; then echo "data file is empty!"; exit 0; fi
-    set +x
     sed -i "s/ssr:..//g" "$tmp"
     sed -i "s/ss:..//g" "$tmp"
     declare -a stxt=($(url_safe_base64_decode FILE "$tmp"))
