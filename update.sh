@@ -64,7 +64,7 @@ function fresh()
   if [ "$push_command" = "" ]; then
      push_command="git push"
   fi
-  push_command
+  $push_command
   echo "$update_time"
   echo "$SSR_URL"
 }
