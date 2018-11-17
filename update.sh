@@ -10,6 +10,8 @@ SSR_URL="https://raw.githubusercontent.com/King-1025/server/SSR/$SUBSCRIBE"
 REMARKS=$(date "+%Y-%m-%d")
 GROUP=King-1025 
 
+alias auto_default_push="upss -dt push"
+
 if [ $# -eq 1 ]; then
    SUBSCRIBE=$1
 fi
@@ -60,7 +62,7 @@ function fresh()
   git add .
   git commit -m "$update_time"
   #git push
-  upss -d push
+  auto_default_push
   echo "$update_time"
   echo "$SSR_URL"
 }
