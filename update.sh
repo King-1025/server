@@ -9,8 +9,7 @@ MODE="BASE64" #TEXT|BASE64
 SSR_URL="https://raw.githubusercontent.com/King-1025/server/SSR/$SUBSCRIBE"
 REMARKS=$(date "+%Y-%m-%d")
 GROUP=King-1025 
-
-alias auto_default_push="upss -dt push"
+AUTO_DEFAULT_PUSH="upss -dt push"
 
 if [ $# -eq 1 ]; then
    SUBSCRIBE=$1
@@ -61,8 +60,11 @@ function fresh()
   maybe_clean
   git add .
   git commit -m "$update_time"
-  #git push
-  auto_default_push
+  local push_command="$AUTO_DEFAULT_PUSH"
+  if [ "$push_command" = "" ]; then
+     push_command="git push"
+  fi
+  push_command
   echo "$update_time"
   echo "$SSR_URL"
 }
