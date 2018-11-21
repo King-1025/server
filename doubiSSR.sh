@@ -586,7 +586,7 @@ function doubiSSR()
     log i "fetch ${i0}"
     fetch "${data}" "${i0}" "${i0}"
     if [ $? != 0 ]||[ ! -e ${data} ];then continue; fi
-    declare -a view=$(n=$(sed -n "/page-numbers current/p" ${data} | awk -F ">|<" '{print $3}');if [ "$n" != "" ]; then echo https://doub.io/sszhfx/comment-page-{$((n-2)),$((n-1)),$((n-0))}/#comments; fi)
+    declare -a view=$(n=$(sed -n "/page-numbers current/p" ${data} | awk -F ">|<" '{print $3}');if [ "$n" != "" ]; then echo https://doub.io/sszhfx/comment-page-{$((n-1)),$((n-0))}/#comments; fi)
     rm ${data} > /dev/null 2>&1
     sleep 5
     for i1 in ${view}; do
