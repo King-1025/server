@@ -28,7 +28,7 @@ function maybe_clean(){
   if [ ${#others[@]} -gt 0 ]; then
      for f in "${others[@]}"; do
        echo "delete $f ok!"
-       #rm -rf $f > /dev/null 2>&1
+       rm -rf $f > /dev/null 2>&1
      done
   fi
   echo ""
