@@ -2,8 +2,10 @@
 
 ROOT=.
 SELF=$0
-PICK_SSR=$ROOT/doubiSSR.sh
-SSR_FILE=$ROOT/output-doubiSSR.txt
+OLD=$ROOT/old
+#PICK_SSR=$OLD/doubiSSR.sh
+PICK_SSR=$ROOT/uneedSSR.sh
+SSR_FILE=$ROOT/output-SSR.txt
 SUBSCRIBE=DATA
 MODE="BASE64" #TEXT|BASE64
 SSR_URL="https://raw.githubusercontent.com/King-1025/server/SSR/$SUBSCRIBE"
@@ -21,17 +23,18 @@ function maybe_clean(){
                  grep -v "$ROOT/README.md" | \
                  grep -v "$PICK_SSR" | \
                  grep -v "$SELF" | \
+                 grep -v "$OLD" | \
                  grep -v "$ROOT/$SUBSCRIBE"))
   if [ ${#others[@]} -gt 0 ]; then
      for f in "${others[@]}"; do
        echo "delete $f ok!"
-       rm -rf $f > /dev/null 2>&1
+       #rm -rf $f > /dev/null 2>&1
      done
   fi
   echo ""
 }
 
-function update_by_doubiSSR()
+function update_SSR()
 {
   if [ ! -e $SSR_FILE ]; then
     $PICK_SSR
@@ -147,9 +150,10 @@ function parse_format()
 
 function change_format()
 {
-  if [ $# -eq 3 ]; then
+  if [ $# -eq 4 ]; then
     local remarks=$2
     local group=$3
+    local unified=$4
     local flag=$(echo $1 | awk -F ":" '{
       if(NF == 6){
        if(match($6,"\?.") != 0){
@@ -162,7 +166,7 @@ function change_format()
       }
     }')
     if [ "$flag" == "VALID_HAVE" ]; then
-      if [ 1 == 1 ]; then
+      if [ "$unified" == "yes" ]; then
         local str=$(echo $1 | awk -F "/" '{print $1}')
         echo "$str/?remarks=${remarks}&group=${group}"
       else
@@ -217,7 +221,7 @@ function make_data()
     tmp=$(mktemp -u)
     local number=0
     for i in "${stxt[@]}"; do
-     local res=$(change_format "$i" "$remarks" "$group")
+     local res=$(change_format "$i" "$remarks" "$group" "yes")
      if [ $? -eq 0 ]&&[ "$res" != "" ]; then
        echo "============ecoding=========="
        echo -e "$res\n"
@@ -243,4 +247,4 @@ function make_data()
   # exit 0
 }
 
-update_by_doubiSSR
+update_SSR
