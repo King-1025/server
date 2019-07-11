@@ -38,7 +38,7 @@ function update_by_doubiSSR()
   fi
   if [ $? -eq 0 ]&&[ -e $SSR_FILE ]; then
     if [ "$MODE" == "TEXT" ]; then
-      mv "$SSR_FILE" > "$ROOT/$SUBSCRIBE"
+      mv "$SSR_FILE"  "$ROOT/$SUBSCRIBE"
     else
       make_data "$SSR_FILE" "$ROOT/$SUBSCRIBE" "$REMARKS" "$GROUP"
     fi
@@ -131,9 +131,9 @@ function parse_format()
    #  read -p "xxx:" xxx
      for ((j=0;j<3;j++)); do
       local res=$(url_safe_base64_decode STRING "$line")
-      echo "$res" | grep -E "{"
+      echo "$res" | grep -qE "{"
       if [ $? -eq 0 ]; then break; fi
-      echo "$res" | grep -E ":"
+      echo "$res" | grep -qE ":"
       if [ $? -eq 0 ]; then
          echo "$res"
          break
