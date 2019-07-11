@@ -1,3 +1,3 @@
 ### SSR 提供SSR订阅服务
 ---
-2019-07-11 14:38:49 订阅:https://raw.githubusercontent.com/King-1025/server/SSR/DATA
+2019-07-11 14:43:54 订阅:https://raw.githubusercontent.com/King-1025/server/SSR/DATA

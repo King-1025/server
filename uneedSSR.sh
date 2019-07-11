@@ -17,9 +17,10 @@ function app(){
     if [ $? -eq 0 ]&&[ -e "$data" ]; then
        sed -n "/<table.*1300px/,/table>/p" "$data" | \
        sed -n "/<td.*ssr:.*td>/p" | \
-       awk -F '"' '{print $4}' | tee "$OUTPUT"
+       awk -F '"' '{print $4}' >> "$OUTPUT"
     fi
   done
+  echo "crawl ok!"
   rm -rf "$data"
 }
 
