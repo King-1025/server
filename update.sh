@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ROOT=.
+ROOT=/home/test0/server
 SELF=$0
 OLD=$ROOT/old
 #PICK_SSR=$OLD/doubiSSR.sh
@@ -28,7 +28,7 @@ function maybe_clean(){
   if [ ${#others[@]} -gt 0 ]; then
      for f in "${others[@]}"; do
        echo "delete $f ok!"
-       rm -rf $f > /dev/null 2>&1
+      # rm -rf $f > /dev/null 2>&1
      done
   fi
   echo ""
@@ -156,7 +156,7 @@ function change_format()
     local unified=$4
     local flag=$(echo $1 | awk -F ":" '{
       if(NF == 6){
-       if(match($6,"\?.") != 0){
+       if(match($6,"\\?.") != 0){
          print "VALID_HAVE"
        }else{
          print "VALID_EMPTY"

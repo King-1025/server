@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ROOT=.
+ROOT=/home/test0/server
 OUTPUT=$ROOT/output-SSR.txt
 SITE=https://www.youneed.win/
 CURL_OPTION="-L"
