@@ -61,13 +61,13 @@ function fresh()
   local update_time=$(date "+%Y-%m-%d %H:%M:%S")
   update_readme "$update_time"
   maybe_clean
-  git add $ROOT
-  git commit -m "$update_time"
+  cd $ROOT && git add .
+  cd $ROOT && git commit -m "$update_time"
   local push_command="$AUTO_DEFAULT_PUSH"
   if [ "$push_command" = "" ]; then
      push_command="git push"
   fi
-  $push_command
+  cd $ROOT && $push_command
   echo "$update_time"
   echo "$SSR_URL"
 }
