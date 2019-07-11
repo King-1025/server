@@ -162,27 +162,32 @@ function change_format()
       }
     }')
     if [ "$flag" == "VALID_HAVE" ]; then
-      echo $1 | awk -F "&" -v drs="$remarks" -v dgp="$group" '{
-       have_remarks="no"
-       have_group="no"
-       for(i=1;i<=NF;i++){
- 	      if(match($i,"remarks") != 0){
-          have_remarks="yes"
-	      }
-        if(match($i,"group") != 0){
+      if [ 1 == 1 ]; then
+        local str=$(echo $1 | awk -F "/" '{print $1}')
+        echo "$str/?remarks=${remarks}&group=${group}"
+      else
+       echo $1 | awk -F "&" -v drs="$remarks" -v dgp="$group" '{
+         have_remarks="no"
+         have_group="no"
+         for(i=1;i<=NF;i++){
+ 	   if(match($i,"remarks") != 0){
+                have_remarks="yes"
+	   }
+           if(match($i,"group") != 0){
 	        $i="group="dgp
-          have_group=yes
+               have_group=yes
+           }
+	 }
+         if(have_remarks == "no"){
+           $NF=$NF"&remarks="drs
          }
-	     }
-       if(have_remarks == "no"){
-         $NF=$NF"&remarks="drs
-       }
-       if(have_group == "no"){
-         $NF=$NF"&group="dgp
-       }
-      gsub(" ","\\&",$0)
-	    print $0
-	  }'
+         if(have_group == "no"){
+           $NF=$NF"&group="dgp
+         }
+         gsub(" ","\\&",$0)
+         print $0
+      }'
+     fi
     elif [ "$flag" == "VALID_EMPTY" ]; then
       echo "$1/?remarks=${remarks}&group=${group}"
     elif [ "$flag" == "INVAILD" ]; then
