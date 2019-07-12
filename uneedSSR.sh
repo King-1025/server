@@ -1,24 +1,44 @@
 #!/usr/bin/env bash
 
-ROOT=/home/test0/server
+function get_pwd()
+{
+  local s="${BASH_SOURCE[0]}"
+  local d=""
+  while [ -h "$s" ]; do #resolve $SOURCE until the file is no longer a symlink
+     d="$( cd -P "$( dirname "$s" )" >/dev/null && pwd )"
+     s="$(readlink "$s")"
+     [[ $s != /* ]] && s="$d/$s" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+  done
+  d="$( cd -P "$( dirname "$s" )" >/dev/null && pwd )"
+  echo $d
+}
+
+ROOT=$(get_pwd)
+#echo $ROOT
+#exit
 OUTPUT=$ROOT/output-SSR.txt
-SITE=https://www.youneed.win/
-CURL_OPTION="-L"
+SITE=http://www.youneed.win/
+
+CURL_OPTION="-L $($ROOT/old/help/fake.py $SITE)"
+echo CURL_OPTION: $CURL_OPTION
+#exit
 
 function app(){
   local data=$(mktemp -u)
   rm -rf "$OUTPUT"
+  local lru="$SITE"
   for i in "" 2 3; do
     local url="${SITE}free-ssr/$i"
     echo ""
-    echo fetch $url
+    echo fetch $url 
     #continue
-    fetch "$data" "$url"
+    fetch "$data" "$url" "$lru"
     if [ $? -eq 0 ]&&[ -e "$data" ]; then
        sed -n "/<table.*1300px/,/table>/p" "$data" | \
        sed -n "/<td.*ssr:.*td>/p" | \
        awk -F '"' '{print $4}' >> "$OUTPUT"
     fi
+    lru="$url"
   done
   echo "crawl ok!"
   rm -rf "$data"
@@ -28,7 +48,11 @@ function fetch()
 {
    #set -x
    echo "" > $1
-   curl -A "$(gen_ua)" -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 60 --retry 1 --retry-max-time 30 $CURL_OPTION $2
+
+   local comm="curl $CURL_OPTION -o $1 -H \"Accept-Language: zh-CN,zh;q=0.9\" -H \"X-Forwarded-For: $(get_random_ip)\" -H \"Content-Type: multipart/form-data; session_language=cn_CN\" --connect-timeout 60 --retry 1 --retry-max-time 30 $2"
+   eval "$comm"
+
+  # curl -A "$(gen_ua)" -o $1 -H "Accept-Language: zh-CN,zh;q=0.9" -H "X-Forwarded-For: $(get_random_ip)" -H "Content-Type: multipart/form-data; session_language=cn_CN" --connect-timeout 60 --retry 1 --retry-max-time 30 $CURL_OPTION $2
    sleep 1
    #set +x
 }
@@ -41,6 +65,7 @@ function gen_ua()
       local index=$(rand $min $max)
       echo ${user_agent[$index]}
 }
+
 function get_random_ip()
 {
    local ch="."
