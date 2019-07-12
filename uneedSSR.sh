@@ -27,7 +27,7 @@ function app(){
   local data=$(mktemp -u)
   rm -rf "$OUTPUT"
   local lru="$SITE"
-  for i in "" 2 3; do
+  for i in "" 2 3 4; do
     local url="${SITE}free-ssr/$i"
     echo ""
     echo fetch $url 
