@@ -24,8 +24,9 @@ SSR_FILE=$ROOT/output-SSR.txt
 SUBSCRIBE=DATA
 MODE="BASE64" #TEXT|BASE64
 SSR_URL="https://raw.githubusercontent.com/King-1025/server/SSR/$SUBSCRIBE"
-REMARKS=$(date "+%Y-%m-%d")
-GROUP=King-1025 
+#REMARKS=$(date "+%Y-%m-%d")
+REMARKS=$(date "+%Y-%m-%d %H:%M:%S")
+GROUP=King-1025
 AUTO_DEFAULT_PUSH="upss -dt push"
 
 if [ $# -eq 1 ]; then
