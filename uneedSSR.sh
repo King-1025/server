@@ -17,8 +17,8 @@ ROOT=$(get_pwd)
 #echo $ROOT
 #exit
 OUTPUT=$ROOT/output-SSR.txt
-#SITE=http://www.youneed.win/ #已被墙
-SITE=http://flywind.ml/
+SITE=http://www.youneed.win/ #已被墙
+#SITE=http://flywind.ml/
 
 CURL_OPTION="-L $($ROOT/old/help/fake.py $SITE)"
 echo CURL_OPTION: $CURL_OPTION
