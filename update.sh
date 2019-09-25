@@ -254,7 +254,7 @@ function make_data()
     sed -i "1i\MAX=$number" $tmp
    # mv $tmp 1
    # exit 0
-   # echo $(url_safe_base64_encode FILE "$tmp") > "$dst"
+   echo $(url_safe_base64_encode FILE "$tmp") > "${dst}.2"
    cp $tmp $dst
     rm -rf "$tmp" > /dev/null 2>&1
    fi
