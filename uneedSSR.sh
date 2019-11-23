@@ -20,7 +20,7 @@ OUTPUT=$ROOT/output-SSR.txt
 SITE=http://www.youneed.win/ #已被墙
 #SITE=http://flywind.ml/
 
-CURL_OPTION="-L $($ROOT/old/help/fake.py $SITE)"
+#CURL_OPTION="-L $($ROOT/old/help/fake.py $SITE)"
 CURL_OPTION="-L"
 echo CURL_OPTION: $CURL_OPTION
 #exit

@@ -17,7 +17,7 @@ jobs:
     - name: 爬取SSR
       run: ./uneedSSR.sh
     - name: 格式化SSR
-      run: ./update github_pages
+      run: ./update.sh github_pages
     - name: 更新Github Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
