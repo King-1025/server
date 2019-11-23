@@ -72,9 +72,12 @@ function update_SSR()
 function github_pages()
 {
    local pages="$ROOT/pages"
+   local update_time=$(date "+%Y-%m-%d %H:%M:%S")
    rm -rf $pages
    mkdir -p $pages
-   cp $ROOT/$SUBSCRIBE $pages/index.md
+   echo "### 更新于: $update_time" | tee $pages/index.md
+   echo "---" >> $pages/index.md
+   cat $ROOT/$SUBSCRIBE >> $pages/index.md
 }
 
 function update_readme()
