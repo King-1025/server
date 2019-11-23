@@ -61,8 +61,20 @@ function update_SSR()
     else
       make_data "$SSR_FILE" "$ROOT/$SUBSCRIBE" "$REMARKS" "$GROUP"
     fi
-    fresh
+    if [ "$1" != "" ]; then
+      $1
+    else
+      fresh
+    fi
   fi
+}
+
+function github_pages()
+{
+   local pages="$ROOT/pages"
+   rm -rf $pages
+   mkdir -p $pages
+   cp $ROOT/$SUBSCRIBE $pages/index.md
 }
 
 function update_readme()
@@ -263,4 +275,4 @@ function make_data()
   # exit 0
 }
 
-update_SSR
+update_SSR $*

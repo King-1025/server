@@ -1,0 +1,27 @@
+name: SSR爬取
+
+on: 
+  push:	
+    branches:	
+      - SSR
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        ref: SSR
+    - name: 爬取SSR
+      run: ./uneedSSR.sh
+    - name: 格式化SSR
+      run: ./update github_pages
+    - name: 更新Github Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_PUBREPO_TOKEN }}
+          BASE_BRANCH: SSR # The branch the action should deploy from.
+          BRANCH:  master # The branch the action should deploy to.
+          FOLDER: pages
