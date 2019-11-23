@@ -21,6 +21,7 @@ SITE=http://www.youneed.win/ #已被墙
 #SITE=http://flywind.ml/
 
 CURL_OPTION="-L $($ROOT/old/help/fake.py $SITE)"
+CURL_OPTION="-L"
 echo CURL_OPTION: $CURL_OPTION
 #exit
 
@@ -37,7 +38,8 @@ function app(){
     if [ $? -eq 0 ]&&[ -e "$data" ]; then
        sed -n "/<table.*1300px/,/table>/p" "$data" | \
        sed -n "/<td.*ssr:.*td>/p" | \
-       awk -F '"' '{print $4}' >> "$OUTPUT"
+       awk -F '"' '{print $6}' >> "$OUTPUT"
+#       awk -F '"' '{print $4}' >> "$OUTPUT"
     fi
     lru="$url"
   done
