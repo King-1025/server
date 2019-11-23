@@ -22,6 +22,6 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_PUBREPO_TOKEN }}
-          BASE_BRANCH: SSR # The branch the action should deploy from.
-          BRANCH:  master # The branch the action should deploy to.
+          BASE_BRANCH: SSR
+          BRANCH:  master
           FOLDER: pages
