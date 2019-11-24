@@ -1,9 +1,11 @@
 name: SSR爬取
 
 on: 
-  push:	
-    branches:	
-      - SSR
+ schedule:
+     - cron:  '38 10 * * *'
+#  push:	
+#    branches:	
+#      - SSR
 
 jobs:
   build:
