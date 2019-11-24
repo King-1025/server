@@ -2,10 +2,10 @@ name: SSR爬取
 
 on: 
   schedule:
-    - cron: '*/10 * * * *'
-#  push:
-#    branches:
-#      - SSR
+    - cron: "*/5 * * * *"
+  push:
+    branches:
+       - SSR
 
 jobs:
   build:
