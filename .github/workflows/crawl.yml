@@ -2,8 +2,7 @@ name: SSR爬取
 
 on: 
  schedule:
-     # East US 2 Azure region
-     - cron:  '*/3 * * * *'
+   - cron:  '*/5 * * * *'
 #  push:	
 #    branches:	
 #      - SSR
