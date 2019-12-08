@@ -105,7 +105,6 @@ function fresh()
 {
   local update_time=$(date "+%Y-%m-%d %H:%M:%S")
   update_readme "$update_time"
-  maybe_clean
   auto_push
   echo "$update_time"
   echo "$SSR_URL"
@@ -113,6 +112,7 @@ function fresh()
 
 function auto_push()
 {
+  maybe_clean
   cd $ROOT && git add .
   cd $ROOT && git commit -m "$update_time"
   local push_command="$AUTO_DEFAULT_PUSH"
