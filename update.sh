@@ -76,7 +76,7 @@ function update_SSR()
 function remote()
 {
   local update_time=$(date "+%Y-%m-%d %H:%M:%S")
-  local url="https://king-1025.github.io/server/"
+  local url="https://king-1025.github.io/server"
   echo "### 更新github_pages开始于: $update_time  [访问页面]($url)" > $ROOT/README.md
   auto_push
   echo "$update_time"
