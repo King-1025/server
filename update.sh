@@ -52,6 +52,10 @@ function maybe_clean(){
 
 function update_SSR()
 {
+  if [ "$1" == "remote" ]; then
+     remote
+     exit 0
+  fi
   if [ ! -e $SSR_FILE ]; then
     $PICK_SSR
   fi
@@ -67,6 +71,16 @@ function update_SSR()
       fresh
     fi
   fi
+}
+
+function remote()
+{
+  local update_time=$(date "+%Y-%m-%d %H:%M:%S")
+  local url="https://king-1025.github.io/server/"
+  echo "更新github_pages开始于: $update_time [访问页面]($url github_pages)" > $ROOT/README.md
+  auto_push
+  echo "$update_time"
+  echo "$url"
 }
 
 function github_pages()
@@ -92,6 +106,13 @@ function fresh()
   local update_time=$(date "+%Y-%m-%d %H:%M:%S")
   update_readme "$update_time"
   maybe_clean
+  auto_push
+  echo "$update_time"
+  echo "$SSR_URL"
+}
+
+function auto_push()
+{
   cd $ROOT && git add .
   cd $ROOT && git commit -m "$update_time"
   local push_command="$AUTO_DEFAULT_PUSH"
@@ -99,8 +120,6 @@ function fresh()
      push_command="git push"
   fi
   cd $ROOT && $push_command
-  echo "$update_time"
-  echo "$SSR_URL"
 }
 
 function url_safe_base64_encode()
