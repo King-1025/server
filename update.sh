@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export TZ="Asia/Shanghai"
+
 function get_pwd()
 {
   local s="${BASH_SOURCE[0]}"
